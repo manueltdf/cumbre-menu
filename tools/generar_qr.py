@@ -18,7 +18,7 @@ qr.make(fit=True)
 
 #4 generar imagen
 image = qr.make_image(
-fill_color="green",
+fill_color="#1E3D2F",
 back_color="white"
 )
 
