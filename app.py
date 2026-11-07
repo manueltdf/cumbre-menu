@@ -30,6 +30,9 @@ app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
 csrf = CSRFProtect(app)
 
+@app.template_filter("pesos")
+def formato_pesos(valor):
+    return f"$ {valor:,}".replace(",", ".")
 
 IMAGENES_MERCH = {
     ("Merchandising · Remeras", "Bosque sumergido"): [

@@ -55,7 +55,7 @@
                         <p>{{ producto["descripcion"] }}</p>
                         {% endif %}
 
-                        <p>$ {{ producto["precio"] }}</p>
+                        <p>{{ producto["precio"] | pesos }}</p>
                     </article>
                 {% endfor %}
             </section>
