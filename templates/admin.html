@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | Cumbre</title>
+</head>
+<body>
+    <h1>Panel de administración</h1>
+
+    <h2>Editar precios</h2>
+    <p>Ingresá los precios en pesos enteros, sin puntos ni comas.</p>
+
+    {% for producto in productos %}
+        <article>
+            <h3>{{ producto["nombre"] }}</h3>
+
+            <form
+                method="post"
+                action="{{ url_for('actualizar_precio', producto_id=producto['id']) }}"
+            >
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="{{ csrf_token() }}"
+                >
+
+                <label for="precio-{{ producto['id'] }}">
+                    Precio en pesos
+                </label>
+
+                <input
+                    type="number"
+                    id="precio-{{ producto['id'] }}"
+                    name="precio"
+                    value="{{ producto['precio'] }}"
+                    min="0"
+                    max="2147483647"
+                    step="1"
+                    required
+                >
+
+                <button type="submit">Guardar precio</button>
+            </form>
+        </article>
+    {% else %}
+        <p>No hay productos disponibles.</p>
+    {% endfor %}
+
+    <a href="{{ url_for('inicio') }}">Ver menú público</a>
+
+    <form method="post" action="{{ url_for('logout') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</body>
+</html>
