@@ -20,7 +20,12 @@
 
                 {% for producto in productos %}
                     <article>
-                        <h4>{{ producto["nombre"] }}</h4>
+                        <h4>
+                            {{ producto["nombre"] }}
+                            {% if producto["variante"] %}
+                            — {{ producto["variante"] }}
+                            {% endif %}
+                        </h4>
 
                         {% if producto["descripcion"] %}
                         <p>{{ producto["descripcion"] }}</p>

@@ -28,7 +28,7 @@ def inicio():
 
     try:
         productos = conexion.execute("""
-            SELECT id, nombre, precio, categoria, descripcion
+            SELECT id, nombre, precio, categoria, descripcion, variante
             FROM productos
             ORDER BY categoria, id
         """).fetchall()
@@ -74,9 +74,11 @@ def admin():
     conexion.row_factory = sqlite3.Row
 
     try:
-        productos = conexion.execute(
-            "SELECT id, nombre, precio FROM productos ORDER BY id"
-        ).fetchall()
+        productos = conexion.execute("""
+            SELECT id, nombre, precio, variante
+            FROM productos
+            ORDER BY categoria, id
+        """).fetchall()
     finally:
         conexion.close()
 

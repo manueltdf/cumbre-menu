@@ -1,0 +1,950 @@
+{
+  "fuente": "menu.pdf aportado por Manu, 10 páginas",
+  "moneda": "ARS",
+  "productos": [
+    {
+      "nombre": "Tostado de campo",
+      "precio": 21000,
+      "categoria": "Sándwiches",
+      "descripcion": "2 u. pan casero, jamón, queso pategrás y parmesano gratinado.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Bagle de trucha",
+      "precio": 24000,
+      "categoria": "Sándwiches",
+      "descripcion": "Queso crema, ciboulette, rúcula y trucha ahumada.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Low carb",
+      "precio": 20000,
+      "categoria": "Sándwiches",
+      "descripcion": "Pan de maní sin harinas, lomito ahumado, queso azul y rúcula.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Ciabatta de jamón crudo, queso y tomate cherry",
+      "precio": 22000,
+      "categoria": "Sándwiches",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Osobuco",
+      "precio": 35000,
+      "categoria": "Sándwiches",
+      "descripcion": "Pan ciabatta, carne de osobuco braseada, gremolata y lechuga.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Cordero",
+      "precio": 37000,
+      "categoria": "Sándwiches",
+      "descripcion": "Pan ciabatta, carne de cordero braseado, salsa criolla y lechuga.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Vegetariano",
+      "precio": 33000,
+      "categoria": "Sándwiches",
+      "descripcion": "Pan ciabatta, hummus, hongos de pino, vegetales asados y lechuga.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Clásica",
+      "precio": 29000,
+      "categoria": "Hamburguesas",
+      "descripcion": "Un medallón de carne, queso pategrás, jamón, lechuga y tomate. Con papas fritas.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Cerro negro",
+      "precio": 33000,
+      "categoria": "Hamburguesas",
+      "descripcion": "Doble medallón de carne, queso ahumado, panceta y salsa especial. Con papas fritas.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Del surco",
+      "precio": 29000,
+      "categoria": "Hamburguesas",
+      "descripcion": "Falafel, hummus, raita y lechuga. Con papas fritas.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Carne",
+      "precio": 20000,
+      "categoria": "Empanadas",
+      "descripcion": "",
+      "variante": "3 unidades",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Hongos",
+      "precio": 20000,
+      "categoria": "Empanadas",
+      "descripcion": "",
+      "variante": "3 unidades",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Jamón y queso",
+      "precio": 20000,
+      "categoria": "Empanadas",
+      "descripcion": "",
+      "variante": "3 unidades",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Papas fritas",
+      "precio": 18000,
+      "categoria": "Para picar",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Papas con cheddar y bacon",
+      "precio": 22000,
+      "categoria": "Para picar",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Papas con pesto",
+      "precio": 20000,
+      "categoria": "Para picar",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Papas Cumbre",
+      "precio": 24000,
+      "categoria": "Para picar",
+      "descripcion": "Con salsa de hongos y panceta.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Picada cumbrera",
+      "precio": 45000,
+      "categoria": "Para picar",
+      "descripcion": "Trucha ahumada, salmón ahumado, pernil ahumado, ciervo ahumado y queso ahumado.",
+      "variante": "Para 2 personas",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Margarita",
+      "precio": 28000,
+      "categoria": "Pizzas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Ahumados patagónicos",
+      "precio": 40000,
+      "categoria": "Pizzas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Vegetales al wok",
+      "precio": 33000,
+      "categoria": "Pizzas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Tradicionales",
+      "precio": 33000,
+      "categoria": "Pizzas",
+      "descripcion": "Jamón y morrones / Fugazzeta / Queso azul / Napolitana / Jamón y ananá.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Rúcula y jamón crudo",
+      "precio": 38000,
+      "categoria": "Pizzas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Pascualina",
+      "precio": 26000,
+      "categoria": "Tartas",
+      "descripcion": "Cebolla, espinaca, morrón y queso. Con ensalada.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Empanada gallega de trucha",
+      "precio": 30000,
+      "categoria": "Tartas",
+      "descripcion": "Cebolla, morrón, trucha y queso crema. Con ensalada.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Quiche sin harina",
+      "precio": 27000,
+      "categoria": "Tartas",
+      "descripcion": "Queso gratinado, crema, panceta y vegetales de estación. Con ensalada.",
+      "variante": "",
+      "pagina_pdf": 3
+    },
+    {
+      "nombre": "Guiso de lentejas",
+      "precio": 33000,
+      "categoria": "Platos principales",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Osobuco con puré",
+      "precio": 35000,
+      "categoria": "Platos principales",
+      "descripcion": "Desmechado de osobuco con base de puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Trucha al limón",
+      "precio": 35000,
+      "categoria": "Truchas",
+      "descripcion": "Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Trucha con salsa de hongos de pino",
+      "precio": 40000,
+      "categoria": "Truchas",
+      "descripcion": "Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Trucha con salsa de queso azul",
+      "precio": 38000,
+      "categoria": "Truchas",
+      "descripcion": "Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "César",
+      "precio": 24000,
+      "categoria": "Ensaladas",
+      "descripcion": "Lechuga, pollo, queso parmesano, croutones y aderezo césar.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Del día",
+      "precio": 24000,
+      "categoria": "Ensaladas",
+      "descripcion": "Consultar con el mozo.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Tallarines al huevo",
+      "precio": 24000,
+      "categoria": "Pastas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Sorrentinos de jamón y queso",
+      "precio": 26000,
+      "categoria": "Pastas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Panzottis de trucha",
+      "precio": 28000,
+      "categoria": "Pastas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Filetto",
+      "precio": 5000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Mixta",
+      "precio": 5000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Crema",
+      "precio": 5000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Manteca",
+      "precio": 3000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Hongos de pino",
+      "precio": 7000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Queso azul",
+      "precio": 5000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Pesto",
+      "precio": 4000,
+      "categoria": "Salsas",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Clásica",
+      "precio": 28000,
+      "categoria": "Milanesas",
+      "descripcion": "Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Napolitana",
+      "precio": 30000,
+      "categoria": "Milanesas",
+      "descripcion": "Salsa de tomate, jamón cocido, muzzarella y tomate fresco. Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Cumbre",
+      "precio": 32000,
+      "categoria": "Milanesas",
+      "descripcion": "Salsa de hongos de pino, queso ahumado y panceta. Con papas fritas / vegetales al wok / puré.",
+      "variante": "",
+      "pagina_pdf": 4
+    },
+    {
+      "nombre": "Agua con o sin gas",
+      "precio": 4800,
+      "categoria": "Bebidas sin alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Agua saborizada",
+      "precio": 5000,
+      "categoria": "Bebidas sin alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Jugos naturales Fruggina",
+      "precio": 5000,
+      "categoria": "Bebidas sin alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Gaseosas",
+      "precio": 5000,
+      "categoria": "Bebidas sin alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Jugo de naranja",
+      "precio": 7000,
+      "categoria": "Bebidas sin alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Durazno / ananá / banana",
+      "precio": 9500,
+      "categoria": "Licuados",
+      "descripcion": "Con agua / con leche.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Durazno con jugo de naranja",
+      "precio": 10500,
+      "categoria": "Licuados",
+      "descripcion": "Con agua / con leche.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Frutos rojos",
+      "precio": 11000,
+      "categoria": "Licuados",
+      "descripcion": "Con agua / con leche.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Frutos rojos y jugo de naranja",
+      "precio": 12500,
+      "categoria": "Licuados",
+      "descripcion": "Con agua / con leche.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Café bajo cero",
+      "precio": 12000,
+      "categoria": "Mocktails",
+      "descripcion": "Café espresso, almíbar y chantilly.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Tropicalis",
+      "precio": 11000,
+      "categoria": "Mocktails",
+      "descripcion": "Jugo de maracuyá, naranja y agua de coco.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Chai austral",
+      "precio": 10000,
+      "categoria": "Mocktails",
+      "descripcion": "Té con especias, limón y jengibre.",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Limonada con menta y jengibre",
+      "precio": 8500,
+      "categoria": "Mocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Limonada con frutos rojos",
+      "precio": 9000,
+      "categoria": "Mocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Soda italiana de manzana",
+      "precio": 9000,
+      "categoria": "Mocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 5
+    },
+    {
+      "nombre": "Cumbre helada",
+      "precio": 15000,
+      "categoria": "Tragos de autor",
+      "descripcion": "Té en hebras ahumado, limón, whiskey y caramelo.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Huella andina",
+      "precio": 15000,
+      "categoria": "Tragos de autor",
+      "descripcion": "Sauco, limón, Malamado, Jagermeister y espumante.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Bosque sumergido",
+      "precio": 15000,
+      "categoria": "Tragos de autor",
+      "descripcion": "Yerba mate, mosqueta, limón y vodka.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Traful rojo",
+      "precio": 18000,
+      "categoria": "Tragos de autor",
+      "descripcion": "Frutos rojos, naranja, gin, enebro y hierbas silvestres.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Cerveza artesanal",
+      "precio": 8500,
+      "categoria": "Bebidas con alcohol",
+      "descripcion": "",
+      "variante": "Lata",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Cerveza artesanal",
+      "precio": 8000,
+      "categoria": "Bebidas con alcohol",
+      "descripcion": "",
+      "variante": "Pinta",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Cerveza Heineken",
+      "precio": 7500,
+      "categoria": "Bebidas con alcohol",
+      "descripcion": "",
+      "variante": "Lata",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Espumante",
+      "precio": 7000,
+      "categoria": "Bebidas con alcohol",
+      "descripcion": "",
+      "variante": "Lata",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Copa de vino",
+      "precio": 10000,
+      "categoria": "Bebidas con alcohol",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Aperol spritz",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Amargo Aperol, espumante y soda.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Negroni",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Gin, rosso y Campari.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Americano",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Rosso, Campari y soda.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Old fashioned",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Bourbon, azúcar y Angostura bitter.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Cynar julep",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Cynar, jugo de cítricos, menta y soda.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Gin tonic",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Gin, tónica y pepino.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Gin tonic con frutos rojos",
+      "precio": 13500,
+      "categoria": "Cocktails",
+      "descripcion": "Gin Beefeater y frutos rojos.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Gin Athos",
+      "precio": 13500,
+      "categoria": "Cocktails",
+      "descripcion": "Verano / Otoño / Invierno / Primavera.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Ice Amarula cream",
+      "precio": 15000,
+      "categoria": "Cocktails",
+      "descripcion": "Cream Baileys, whiskey y helado de americana.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Manhatan",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Bourbon, rosso y piel de naranja.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Fernet cola",
+      "precio": 10000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "Jarrito",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Fernet cola",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "Pinta",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Campari naranja",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Vermouth",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Ferroviario",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "Fernet Branca, Cinzano rosso y soda.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Medida de tequila",
+      "precio": 10000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Medida de whisky",
+      "precio": 12000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Medida de Jagermeister",
+      "precio": 14000,
+      "categoria": "Cocktails",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Jagertonic",
+      "precio": 16000,
+      "categoria": "Cocktails",
+      "descripcion": "Jagermeister y tónica.",
+      "variante": "",
+      "pagina_pdf": 6
+    },
+    {
+      "nombre": "Café",
+      "precio": 4500,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Pocillo",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Café",
+      "precio": 5000,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Jarrito",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Café",
+      "precio": 6500,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Doble",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Cortado",
+      "precio": 5500,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Jarrito",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Lágrima",
+      "precio": 5500,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Jarrito",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Lágrima",
+      "precio": 7000,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Doble",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Café con leche",
+      "precio": 7000,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "Doble",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Capuccino",
+      "precio": 8500,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Té clásico o saborizado",
+      "precio": 6000,
+      "categoria": "Cafetería",
+      "descripcion": "Saquito.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Té en hebras",
+      "precio": 8000,
+      "categoria": "Cafetería",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Medialunas",
+      "precio": 4500,
+      "categoria": "Merienda",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Medialunas con jamón y queso",
+      "precio": 6500,
+      "categoria": "Merienda",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Tostadas",
+      "precio": 7500,
+      "categoria": "Merienda",
+      "descripcion": "Pan casero, dip de queso crema y mermelada o dulce de leche.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Pasta frola de membrillo",
+      "precio": 7500,
+      "categoria": "Merienda",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Alfajor del Montañés",
+      "precio": 5500,
+      "categoria": "Merienda",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Conito de dulce de leche",
+      "precio": 4500,
+      "categoria": "Merienda",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Brownie",
+      "precio": 13500,
+      "categoria": "Postres",
+      "descripcion": "Con frutos rojos, dulce de leche y helado.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Cheesecake de frutos rojos",
+      "precio": 13500,
+      "categoria": "Postres",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Flan",
+      "precio": 10000,
+      "categoria": "Postres",
+      "descripcion": "Con dulce de leche y/o crema.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Don Pedro",
+      "precio": 14500,
+      "categoria": "Postres",
+      "descripcion": "Whisky, helado de americana y nueces.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Helado artesanal del Montañés",
+      "precio": 10000,
+      "categoria": "Postres",
+      "descripcion": "2 sabores.",
+      "variante": "",
+      "pagina_pdf": 7
+    },
+    {
+      "nombre": "Bosque sumergido",
+      "precio": 36000,
+      "categoria": "Merchandising · Remeras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 8
+    },
+    {
+      "nombre": "Cerro negro",
+      "precio": 36000,
+      "categoria": "Merchandising · Remeras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 8
+    },
+    {
+      "nombre": "Lagunas mellizas",
+      "precio": 36000,
+      "categoria": "Merchandising · Remeras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 9
+    },
+    {
+      "nombre": "Cumbre",
+      "precio": 36000,
+      "categoria": "Merchandising · Remeras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 9
+    },
+    {
+      "nombre": "Piluso",
+      "precio": 35000,
+      "categoria": "Merchandising · Gorras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 10
+    },
+    {
+      "nombre": "Vintage",
+      "precio": 35000,
+      "categoria": "Merchandising · Gorras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 10
+    },
+    {
+      "nombre": "Trucker",
+      "precio": 35000,
+      "categoria": "Merchandising · Gorras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 10
+    },
+    {
+      "nombre": "Polo",
+      "precio": 35000,
+      "categoria": "Merchandising · Gorras",
+      "descripcion": "",
+      "variante": "",
+      "pagina_pdf": 10
+    }
+  ]
+}
