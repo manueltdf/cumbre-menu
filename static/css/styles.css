@@ -90,3 +90,54 @@ article p:last-child {
         padding: 16px;
     }
 }
+
+.categorias {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 14px 20px;
+    background-color: var(--papel);
+    border-bottom: 1px solid var(--borde);
+}
+
+.categorias a {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    color: var(--verde);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.categorias a:hover {
+    background-color: var(--verde);
+    color: var(--papel);
+}
+
+.categorias a:focus-visible {
+    outline: 3px solid var(--tierra);
+    outline-offset: 2px;
+}
+
+section {
+    scroll-margin-top: 20px;
+}
+
+.galeria-merch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 640px;
+    margin-bottom: 16px;
+}
+
+.galeria-merch img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    background-color: var(--fondo);
+    border-radius: 8px;
+}
