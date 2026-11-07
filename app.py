@@ -1,10 +1,20 @@
 import os
 import sqlite3
-from flask_wtf.csrf import CSRFProtect
 from pathlib import Path
+
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, redirect, url_for, session, abort
+from flask import (
+    Flask,
+    abort,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
+from flask_wtf.csrf import CSRFProtect
 from werkzeug.security import check_password_hash
+
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "menu.db"
@@ -15,11 +25,47 @@ app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
 app.config["ADMIN_PASSWORD_HASH"] = os.environ["ADMIN_PASSWORD_HASH"]
-
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
 csrf = CSRFProtect(app)
+
+
+IMAGENES_MERCH = {
+    ("Merchandising · Remeras", "Bosque sumergido"): [
+        "bosque-sumergido-remera.png",
+        "bosque-sumergido-foto-base.png",
+    ],
+    ("Merchandising · Remeras", "Cerro negro"): [
+        "cerro-negro-remera.png",
+        "cerro-negro-foto.png",
+    ],
+    ("Merchandising · Remeras", "Lagunas mellizas"): [
+        "lagunas-mellizas-remera.png",
+        "lagunas-mellizas-foto.png",
+    ],
+    ("Merchandising · Remeras", "Cumbre"): [
+        "cumbre-remera.png",
+        "cumbre-foto.png",
+    ],
+    ("Merchandising · Gorras", "Piluso"): [
+        "piluso-producto.png",
+        "piluso-foto.png",
+    ],
+    ("Merchandising · Gorras", "Vintage"): [
+        "vintage-producto.png",
+        "vintage-foto.png",
+    ],
+    ("Merchandising · Gorras", "Trucker"): [
+        "trucker-producto.png",
+        "trucker-foto.png",
+    ],
+    ("Merchandising · Gorras", "Polo"): [
+        "polo-producto.png",
+        "polo-foto.png",
+    ],
+}
+
 
 @app.route("/")
 def inicio():
@@ -45,7 +91,12 @@ def inicio():
 
         categorias[categoria].append(producto)
 
-    return render_template("index.html", categorias=categorias)
+    return render_template(
+        "index.html",
+        categorias=categorias,
+        imagenes_merch=IMAGENES_MERCH,
+    )
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -64,6 +115,7 @@ def login():
         error = "Contraseña incorrecta."
 
     return render_template("login.html", error=error)
+
 
 @app.route("/admin")
 def admin():
@@ -84,12 +136,17 @@ def admin():
 
     return render_template("admin.html", productos=productos)
 
+
 @app.route("/logout", methods=["POST"])
 def logout():
     session.clear()
     return redirect(url_for("login"))
 
-@app.route("/admin/productos/<int:producto_id>/precio", methods=["POST"])
+
+@app.route(
+    "/admin/productos/<int:producto_id>/precio",
+    methods=["POST"],
+)
 def actualizar_precio(producto_id):
     if not session.get("admin"):
         return redirect(url_for("login"))
@@ -109,7 +166,7 @@ def actualizar_precio(producto_id):
     try:
         resultado = conexion.execute(
             "UPDATE productos SET precio = ? WHERE id = ?",
-            (precio, producto_id)
+            (precio, producto_id),
         )
 
         if resultado.rowcount == 0:
@@ -120,4 +177,3 @@ def actualizar_precio(producto_id):
         conexion.close()
 
     return redirect(url_for("admin"))
-

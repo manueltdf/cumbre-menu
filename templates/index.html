@@ -27,6 +27,23 @@
 
                 {% for producto in productos %}
                     <article>
+                        {% set imagenes = imagenes_merch.get(
+                        (categoria, producto["nombre"]), []
+                        ) %}
+
+                        {% if imagenes %}
+                        <div class="galeria-merch">
+                            {% for archivo in imagenes %}
+                            <img
+                                 src="{{ url_for('static', filename='img/merchandising/' ~ archivo) }}"
+                                alt="{{ producto['nombre'] }} — {{ 'producto' if loop.first else 'foto de uso' }}"
+                                 loading="lazy"
+                                 width="640"
+                                 height="800"
+                                 >
+                            {% endfor %}
+                         </div>
+{% endif %}
                         <h4>
                             {{ producto["nombre"] }}
                             {% if producto["variante"] %}
