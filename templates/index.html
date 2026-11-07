@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cumbre Restobar | Menú</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
         <h1>Cumbre Restobar</h1>
         <p>Villa Traful · Ruta 65</p>
     </header>
-
+    <nav class="categorias" aria-label="Categorías">
+        {% for categoria in categorias %}
+            <a href="#categoria-{{loop.index}}">
+                {{ categoria }}
+            </a>
+        {% endfor %}
+    </nav>    
     <main>
         <h2>Nuestro menú</h2>
 
         {% for categoria, productos in categorias.items() %}
-            <section>
+            <section id="categoria-{{ loop.index }}">
                 <h3>{{ categoria }}</h3>
 
                 {% for producto in productos %}
