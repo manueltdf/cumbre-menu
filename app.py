@@ -27,13 +27,25 @@ def inicio():
     conexion.row_factory = sqlite3.Row
 
     try:
-        productos = conexion.execute(
-            "SELECT id, nombre, precio FROM productos ORDER BY id"
-        ).fetchall()
+        productos = conexion.execute("""
+            SELECT id, nombre, precio, categoria, descripcion
+            FROM productos
+            ORDER BY categoria, id
+        """).fetchall()
     finally:
         conexion.close()
 
-    return render_template("index.html", productos=productos)
+    categorias = {}
+
+    for producto in productos:
+        categoria = producto["categoria"]
+
+        if categoria not in categorias:
+            categorias[categoria] = []
+
+        categorias[categoria].append(producto)
+
+    return render_template("index.html", categorias=categorias)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

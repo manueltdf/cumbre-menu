@@ -6,21 +6,33 @@
     <title>Cumbre Restobar | Menú</title>
 </head>
 <body>
-   <header>
-    <h1>Cumbre Restobar</h1>
-    <p>Villa Traful - Ruta 65</p>
-   </header> 
-   <main>
-      <h2>Nuestro menú</h2>
+    <header>
+        <h1>Cumbre Restobar</h1>
+        <p>Villa Traful · Ruta 65</p>
+    </header>
 
-    {% for producto in productos %}
-        <article>
-            <h3>{{ producto["nombre"] }}</h3>
-            <p>$ {{ producto["precio"] }}</p>
-        </article>
-    {% else %}
-        <p>No hay productos disponibles.</p>
-    {% endfor %}
-   </main>
+    <main>
+        <h2>Nuestro menú</h2>
+
+        {% for categoria, productos in categorias.items() %}
+            <section>
+                <h3>{{ categoria }}</h3>
+
+                {% for producto in productos %}
+                    <article>
+                        <h4>{{ producto["nombre"] }}</h4>
+
+                        {% if producto["descripcion"] %}
+                        <p>{{ producto["descripcion"] }}</p>
+                        {% endif %}
+
+                        <p>$ {{ producto["precio"] }}</p>
+                    </article>
+                {% endfor %}
+            </section>
+        {% else %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </main>
 </body>
 </html>
