@@ -1,7 +1,17 @@
 .env
+.dev.vars
 .venv/
 __pycache__/
 menu.db
 menu.db-*
+.cloudflare-assets/
+.wrangler/
+cloudflare/worker/.dev.vars
+cloudflare/worker/.wrangler/
+cloudflare/worker/.cloudflare-assets/
+cloudflare/worker/src/app.py
+cloudflare/worker/.venv-workers/
+cloudflare/worker/python_modules/
+cloudflare/worker/pylock.toml
 
 

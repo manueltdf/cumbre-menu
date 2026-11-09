@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cumbre-menu-staging",
+  "main": "src/worker.py",
+  "compatibility_date": "2026-11-09",
+  "compatibility_flags": ["python_workers"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "CUMBRE_ENV": "staging"
+  },
+  "assets": {
+    "directory": "./.cloudflare-assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cumbre-menu-staging",
+      // Local-only placeholder; replace with the ID of the staging database.
+      "database_id": "00000000-0000-4000-8000-000000000001",
+      "migrations_dir": "../migrations"
+    }
+  ]
+}
