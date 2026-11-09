@@ -3,60 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración | Cumbre</title>
+    <meta name="theme-color" content="#003328">
+    <title>Panel de administración | Cumbre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <script src="{{ url_for('static', filename='js/admin.js') }}" defer></script>
 </head>
-<body>
-    <h1>Panel de administración</h1>
-
-    <h2>Editar precios</h2>
-    <p>Ingresá los precios en pesos enteros, sin puntos ni comas.</p>
-
-    {% for producto in productos %}
-        <article>
-            <h3>
-                {{ producto["nombre"] }}
-                {% if producto["variante"] %}
-                — {{ producto["variante"] }}
-                {% endif %}
-            </h3>
-
-            <form
-                method="post"
-                action="{{ url_for('actualizar_precio', producto_id=producto['id']) }}"
+<body class="admin-page">
+    <header class="admin-banner">
+        <div class="admin-banner__inner">
+            <img
+                class="admin-banner__logo"
+                src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}"
+                alt="Cumbre Resto Bar — Villa Traful"
+                width="220"
+                height="160"
             >
-                <input
-                    type="hidden"
-                    name="csrf_token"
-                    value="{{ csrf_token() }}"
-                >
+            <span class="admin-banner__divider" aria-hidden="true"></span>
+            <h1>Panel de administración</h1>
 
-                <label for="precio-{{ producto['id'] }}">
-                    Precio en pesos
-                </label>
-
-                <input
-                    type="number"
-                    id="precio-{{ producto['id'] }}"
-                    name="precio"
-                    value="{{ producto['precio'] }}"
-                    min="0"
-                    max="2147483647"
-                    step="1"
-                    required
-                >
-
-                <button type="submit">Guardar precio</button>
+            <form class="admin-banner__logout" method="post" action="{{ url_for('logout') }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit">Cerrar sesión</button>
             </form>
-        </article>
-    {% else %}
-        <p>No hay productos disponibles.</p>
-    {% endfor %}
+        </div>
+    </header>
 
-    <a href="{{ url_for('inicio') }}">Ver menú público</a>
+    <main class="admin-main">
+        <div class="admin-heading">
+            <h2>Editar productos</h2>
+            <p>Actualizá la descripción y el precio de cada producto.</p>
+        </div>
 
-    <form method="post" action="{{ url_for('logout') }}">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <button type="submit">Cerrar sesión</button>
-    </form>
+        {% with mensajes = get_flashed_messages(category_filter=["success"]) %}
+            {% for mensaje in mensajes %}
+                <p class="admin-notice" role="status">{{ mensaje }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <div class="admin-search-wrap">
+            <label class="visually-hidden" for="buscar-producto">Buscar producto o categoría</label>
+            <svg class="admin-search-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                <path d="m16 16 5 5"></path>
+            </svg>
+            <input
+                id="buscar-producto"
+                class="admin-search"
+                type="search"
+                placeholder="Buscar producto o categoría"
+                autocomplete="off"
+                aria-controls="lista-productos"
+            >
+            <span class="admin-count" id="cantidad-resultados" aria-live="polite">
+                {{ cantidad_productos }} productos
+            </span>
+        </div>
+
+        <div id="lista-productos" class="admin-categories">
+            {% for categoria, productos in categorias.items() %}
+                <section class="admin-category" aria-labelledby="categoria-{{ loop.index }}">
+                    <h3 class="admin-category__title" id="categoria-{{ loop.index }}">
+                        {{ categoria }}
+                    </h3>
+
+                    {% for producto in productos %}
+                        <article
+                            class="admin-product"
+                            data-product-row
+                            data-search="{{ (producto['nombre'] ~ ' ' ~ categoria ~ ' ' ~ (producto['variante'] or '') ~ ' ' ~ (producto['descripcion'] or '')) | lower }}"
+                        >
+                            <form
+                                class="admin-product__form"
+                                method="post"
+                                action="{{ url_for('actualizar_producto', producto_id=producto['id']) }}"
+                            >
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                                <div class="admin-product__details">
+                                    <h4>
+                                        {{ producto["nombre"] }}
+                                        {% if producto["variante"] %}
+                                            <span>— {{ producto["variante"] }}</span>
+                                        {% endif %}
+                                    </h4>
+                                    <label for="descripcion-{{ producto['id'] }}">Descripción</label>
+                                    <textarea
+                                        id="descripcion-{{ producto['id'] }}"
+                                        name="descripcion"
+                                        rows="2"
+                                        maxlength="2000"
+                                        aria-label="Descripción de {{ producto['nombre'] }}"
+                                    >{{- producto["descripcion"] -}}</textarea>
+                                </div>
+
+                                <div class="admin-product__price">
+                                    <label for="precio-{{ producto['id'] }}">Precio (ARS)</label>
+                                    <div class="admin-product__actions">
+                                        <div class="admin-price-input">
+                                            <span aria-hidden="true">$</span>
+                                            <input
+                                                id="precio-{{ producto['id'] }}"
+                                                name="precio"
+                                                type="text"
+                                                inputmode="numeric"
+                                                autocomplete="off"
+                                                pattern="[0-9.]+"
+                                                value="{{ producto['precio'] | miles }}"
+                                                aria-label="Precio en pesos de {{ producto['nombre'] }}"
+                                                required
+                                            >
+                                        </div>
+                                        <button class="admin-save" type="submit">
+                                            <svg aria-hidden="true" viewBox="0 0 20 20">
+                                                <path d="m4 10 4 4 8-9"></path>
+                                            </svg>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </article>
+                    {% endfor %}
+                </section>
+            {% else %}
+                <p class="admin-empty">No hay productos disponibles.</p>
+            {% endfor %}
+        </div>
+
+        <p class="admin-no-results" id="sin-resultados" hidden>No se encontraron productos.</p>
+
+        <footer class="admin-footer">
+            <a href="{{ url_for('inicio') }}">Ver menú público</a>
+            <span>Los cambios guardados se reflejan en el menú.</span>
+        </footer>
+    </main>
 </body>
 </html>
