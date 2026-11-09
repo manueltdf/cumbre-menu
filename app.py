@@ -103,6 +103,79 @@ IMAGENES_MERCH = {
     ],
 }
 
+# El orden y la distribución son parte del diseño de la carta. Los productos,
+# precios y descripciones siguen viniendo de SQLite.
+LAYOUT_CARTA = (
+    {
+        "id": "sabores-de-montana",
+        "numero": "01 / NUESTRA CARTA",
+        "titulo": "Sabores de montaña",
+        "descripcion": "Sándwiches, hamburguesas y algo para compartir.",
+        "tema": "verde",
+        "columnas": 2,
+        "filas": (
+            ("Sándwiches", "Para picar"),
+            ("Hamburguesas", "Pizzas"),
+            ("Empanadas", "Tartas"),
+        ),
+    },
+    {
+        "id": "delicias-locales",
+        "numero": "02 / COCINA",
+        "titulo": "Delicias locales",
+        "descripcion": "Truchas, pastas y clásicos de nuestra cocina.",
+        "tema": "verde",
+        "columnas": 2,
+        "filas": (
+            ("Platos principales", "Pastas"),
+            ("Truchas", "Salsas"),
+            ("Ensaladas", "Milanesas"),
+        ),
+    },
+    {
+        "id": "pausa-natural",
+        "numero": "03 / BEBIDAS SIN ALCOHOL",
+        "titulo": "Una pausa natural",
+        "descripcion": "",
+        "tema": "tierra",
+        "columnas": 3,
+        "filas": (("Bebidas sin alcohol", "Licuados", "Mocktails"),),
+    },
+    {
+        "id": "brindar-frente-al-lago",
+        "numero": "04 / NUESTRA BARRA",
+        "titulo": "Brindar frente al lago",
+        "descripcion": "",
+        "tema": "tierra",
+        "columnas": 2,
+        "filas": (
+            ("Tragos de autor", "Cocktails"),
+            ("Bebidas con alcohol", None),
+        ),
+    },
+    {
+        "id": "quedate-un-ratito-mas",
+        "numero": "05 / CAFETERÍA & MERIENDA",
+        "titulo": "Quedate un ratito más",
+        "descripcion": "",
+        "tema": "terracota",
+        "columnas": 2,
+        "filas": (
+            ("Cafetería", "Merienda"),
+            (None, "Postres"),
+        ),
+    },
+)
+
+SUBTITULOS_CATEGORIA = {
+    "Hamburguesas": "Con papas fritas",
+    "Empanadas": "3 unidades",
+    "Tartas": "Con ensalada",
+    "Truchas": "Con papas fritas / vegetales al wok / puré.",
+    "Milanesas": "Con papas fritas / vegetales al wok / puré.",
+    "Licuados": "Con agua / con leche",
+}
+
 
 @app.route("/")
 def inicio():
@@ -113,25 +186,45 @@ def inicio():
         productos = conexion.execute("""
             SELECT id, nombre, precio, categoria, descripcion, variante
             FROM productos
-            ORDER BY categoria, id
+            ORDER BY id
         """).fetchall()
     finally:
         conexion.close()
 
-    categorias = {}
+    productos_por_categoria = {}
 
     for producto in productos:
         categoria = producto["categoria"]
+        productos_por_categoria.setdefault(categoria, []).append(producto)
 
-        if categoria not in categorias:
-            categorias[categoria] = []
+    categorias = {
+        categoria: productos_por_categoria.pop(categoria)
+        for categoria in ORDEN_CATEGORIAS
+        if categoria in productos_por_categoria
+    }
+    categorias.update(productos_por_categoria)
 
-        categorias[categoria].append(producto)
+    categorias_en_layout = {
+        categoria
+        for bloque in LAYOUT_CARTA
+        for fila in bloque["filas"]
+        for categoria in fila
+        if categoria
+    }
+    categorias_sin_layout = {
+        categoria: productos_categoria
+        for categoria, productos_categoria in categorias.items()
+        if categoria not in categorias_en_layout
+        and not categoria.startswith("Merchandising ·")
+    }
 
     return render_template(
         "index.html",
         categorias=categorias,
         imagenes_merch=IMAGENES_MERCH,
+        layout_carta=LAYOUT_CARTA,
+        subtitulos_categoria=SUBTITULOS_CATEGORIA,
+        categorias_sin_layout=categorias_sin_layout,
     )
 
 

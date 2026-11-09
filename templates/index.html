@@ -3,65 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cumbre Restobar | Menú</title>
+    <meta name="theme-color" content="#003328">
+    <meta name="description" content="Carta de Cumbre Restobar en Villa Traful.">
+    <title>Cumbre Restobar | Carta</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-    <header>
-        <h1>Cumbre Restobar</h1>
-        <p>Villa Traful · Ruta 65</p>
-    </header>
-    <nav class="categorias" aria-label="Categorías">
-        {% for categoria in categorias %}
-            <a href="#categoria-{{loop.index}}">
-                {{ categoria }}
-            </a>
-        {% endfor %}
-    </nav>    
-    <main>
-        <h2>Nuestro menú</h2>
-
-        {% for categoria, productos in categorias.items() %}
-            <section id="categoria-{{ loop.index }}">
-                <h3>{{ categoria }}</h3>
-
+<body id="inicio">
+    {% macro categoria_card(nombre) %}
+        {% set productos = categorias.get(nombre, []) %}
+        {% if productos %}
+        <section class="menu-card" id="categoria-{{ nombre|lower|replace(' ', '-')|replace('·', '') }}">
+            <header class="menu-card__header">
+                <h3>{{ nombre }}</h3>
+                {% set subtitulo = subtitulos_categoria.get(nombre) %}
+                {% if subtitulo %}<p>{{ subtitulo }}</p>{% endif %}
+            </header>
+            <div class="menu-card__items">
                 {% for producto in productos %}
-                    <article>
-                        {% set imagenes = imagenes_merch.get(
-                        (categoria, producto["nombre"]), []
-                        ) %}
-
-                        {% if imagenes %}
-                        <div class="galeria-merch">
-                            {% for archivo in imagenes %}
-                            <img
-                                 src="{{ url_for('static', filename='img/merchandising/' ~ archivo) }}"
-                                alt="{{ producto['nombre'] }} — {{ 'producto' if loop.first else 'foto de uso' }}"
-                                 loading="lazy"
-                                 width="640"
-                                 height="800"
-                                 >
-                            {% endfor %}
-                         </div>
-{% endif %}
-                        <h4>
-                            {{ producto["nombre"] }}
-                            {% if producto["variante"] %}
-                            — {{ producto["variante"] }}
-                            {% endif %}
-                        </h4>
-
+                    <article class="menu-item">
+                        <div class="menu-item__heading">
+                            <h4>
+                                {{ producto["nombre"] }}
+                                {% if producto["variante"] %}<span class="menu-item__variant">· {{ producto["variante"] }}</span>{% endif %}
+                            </h4>
+                            <span class="menu-item__price">{{ producto["precio"] | pesos }}</span>
+                        </div>
                         {% if producto["descripcion"] %}
-                        <p>{{ producto["descripcion"] }}</p>
+                            <p class="menu-item__description">{{ producto["descripcion"] }}</p>
                         {% endif %}
-
-                        <p>{{ producto["precio"] | pesos }}</p>
                     </article>
                 {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    {% endmacro %}
+
+    <header class="hero">
+        <div class="hero__main">
+            <div class="hero__copy">
+                <p class="eyebrow">Ruta 65 · Villa Traful</p>
+                <h1>Un lugar mágico<br>frente al lago.</h1>
+                <p class="hero__description">Para disfrutar de la gastronomía al ritmo de la montaña.</p>
+                <a class="hero__button" href="#carta">Explorá nuestra carta <span aria-hidden="true">↓</span></a>
+            </div>
+            <img class="hero__logo" src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}" alt="Cumbre Resto Bar">
+        </div>
+        <div class="hero__keywords" aria-label="Especialidades">
+            <span>Cocina de montaña</span>
+            <span>Tragos de autor</span>
+            <span>Cafetería y merienda</span>
+            <span>Un recuerdo de Traful</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="location" aria-labelledby="location-title">
+            <div class="location__copy">
+                <p class="eyebrow eyebrow--orange">Gastronomía al ritmo de la montaña</p>
+                <h2 id="location-title">La naturaleza nos inspira, el sabor te conquista.</h2>
+                <p class="location__route">Ruta 65 / Villa Traful</p>
+            </div>
+            <figure class="location__map">
+                <figcaption><span>Villa Traful</span><span>Ruta 65</span></figcaption>
+                <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65">
+            </figure>
+        </section>
+
+        <div class="menu-content" id="carta">
+            {% for bloque in layout_carta %}
+                <section class="menu-chapter menu-chapter--{{ bloque.tema }}" id="{{ bloque.id }}" aria-labelledby="titulo-{{ bloque.id }}">
+                    <header class="chapter-heading">
+                        <p class="eyebrow">{{ bloque.numero }}</p>
+                        <div class="chapter-heading__row">
+                            <h2 id="titulo-{{ bloque.id }}">{{ bloque.titulo }}</h2>
+                            {% if bloque.descripcion %}<p>{{ bloque.descripcion }}</p>{% endif %}
+                        </div>
+                    </header>
+
+                    {% for fila in bloque.filas %}
+                        <div class="menu-grid menu-grid--{{ fila|length }}">
+                            {% for nombre_categoria in fila %}
+                                {% if nombre_categoria %}{{ categoria_card(nombre_categoria) }}{% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </section>
+            {% endfor %}
+
+            {% if categorias_sin_layout %}
+                <section class="menu-chapter menu-chapter--verde" aria-labelledby="titulo-otras-opciones">
+                    <header class="chapter-heading">
+                        <p class="eyebrow">CUMBRE · VILLA TRAFUL</p>
+                        <div class="chapter-heading__row"><h2 id="titulo-otras-opciones">Más para disfrutar</h2></div>
+                    </header>
+                    <div class="menu-grid menu-grid--2">
+                        {% for nombre_categoria, productos in categorias_sin_layout.items() %}
+                            {{ categoria_card(nombre_categoria) }}
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+
+            <section class="merch" id="merchandising" aria-labelledby="merch-title">
+                <header class="chapter-heading chapter-heading--merch">
+                    <p class="eyebrow">06 / MERCHANDISING</p>
+                    <div class="chapter-heading__row">
+                        <h2 id="merch-title">Llevate un poco de Cumbre</h2>
+                        <p>Villa Traful, para llevar con vos.</p>
+                    </div>
+                    <p class="merch__note">consultar por talles y modelos</p>
+                </header>
+
+                {% for categoria, etiqueta in [
+                    ("Merchandising · Remeras", "Remeras"),
+                    ("Merchandising · Gorras", "Gorras")
+                ] %}
+                    {% set productos = categorias.get(categoria, []) %}
+                    {% if productos %}
+                        <section class="merch-group" aria-labelledby="titulo-{{ etiqueta|lower }}">
+                            <header class="merch-group__heading">
+                                <h3 id="titulo-{{ etiqueta|lower }}">{{ etiqueta }}</h3>
+                                {% if etiqueta == "Gorras" %}<p>Consultar colores y diseño</p>{% endif %}
+                            </header>
+                            <div class="merch-grid merch-grid--{{ etiqueta|lower }}">
+                                {% for producto in productos %}
+                                    {% set imagenes = imagenes_merch.get((categoria, producto["nombre"]), []) %}
+                                    <article class="merch-product">
+                                        {% if imagenes %}
+                                            <div class="merch-product__gallery">
+                                                {% for archivo in imagenes %}
+                                                    <div class="merch-product__image merch-product__image--{{ loop.index }}">
+                                                        <img
+                                                            src="{{ url_for('static', filename='img/merchandising/' ~ archivo) }}"
+                                                            alt="{{ producto['nombre'] }} — {{ 'producto' if loop.first else 'foto en uso' }}"
+                                                            loading="lazy"
+                                                        >
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="merch-product__details">
+                                            <h4>{{ producto["nombre"] }}</h4>
+                                            <span class="menu-item__price">{{ producto["precio"] | pesos }}</span>
+                                            {% if producto["variante"] %}<p>{{ producto["variante"] }}</p>{% endif %}
+                                            {% if producto["descripcion"] %}<p>{{ producto["descripcion"] }}</p>{% endif %}
+                                        </div>
+                                    </article>
+                                {% endfor %}
+                            </div>
+                        </section>
+                    {% endif %}
+                {% endfor %}
             </section>
-        {% else %}
-            <p>No hay productos disponibles.</p>
-        {% endfor %}
+        </div>
     </main>
+
+    <footer class="footer">
+        <a class="footer__brand" href="#inicio" aria-label="Volver al inicio de Cumbre">CUMBRE <span>RESTO BAR</span></a>
+        <p>Gastronomía al ritmo de la montaña.</p>
+        <div class="footer__meta"><span>Ruta 65 · Villa Traful</span><a href="#inicio">Volver al inicio ↑</a></div>
+    </footer>
 </body>
 </html>
