@@ -1,4 +1,5 @@
 import os
+import re
 import sqlite3
 from pathlib import Path
 
@@ -6,6 +7,7 @@ from dotenv import load_dotenv
 from flask import (
     Flask,
     abort,
+    flash,
     redirect,
     render_template,
     request,
@@ -33,6 +35,38 @@ csrf = CSRFProtect(app)
 @app.template_filter("pesos")
 def formato_pesos(valor):
     return f"$ {valor:,}".replace(",", ".")
+
+
+@app.template_filter("miles")
+def separador_miles(valor):
+    return f"{valor:,}".replace(",", ".")
+
+
+ORDEN_CATEGORIAS = (
+    "Sándwiches",
+    "Hamburguesas",
+    "Empanadas",
+    "Para picar",
+    "Pizzas",
+    "Tartas",
+    "Platos principales",
+    "Truchas",
+    "Ensaladas",
+    "Pastas",
+    "Salsas",
+    "Milanesas",
+    "Bebidas sin alcohol",
+    "Licuados",
+    "Mocktails",
+    "Tragos de autor",
+    "Bebidas con alcohol",
+    "Cocktails",
+    "Cafetería",
+    "Merienda",
+    "Postres",
+    "Merchandising · Remeras",
+    "Merchandising · Gorras",
+)
 
 IMAGENES_MERCH = {
     ("Merchandising · Remeras", "Bosque sumergido"): [
@@ -130,14 +164,31 @@ def admin():
 
     try:
         productos = conexion.execute("""
-            SELECT id, nombre, precio, variante
+            SELECT id, nombre, precio, categoria, descripcion, variante
             FROM productos
-            ORDER BY categoria, id
+            ORDER BY id
         """).fetchall()
     finally:
         conexion.close()
 
-    return render_template("admin.html", productos=productos)
+    productos_por_categoria = {}
+    for producto in productos:
+        productos_por_categoria.setdefault(producto["categoria"], []).append(
+            producto
+        )
+
+    categorias = {
+        categoria: productos_por_categoria.pop(categoria)
+        for categoria in ORDEN_CATEGORIAS
+        if categoria in productos_por_categoria
+    }
+    categorias.update(productos_por_categoria)
+
+    return render_template(
+        "admin.html",
+        categorias=categorias,
+        cantidad_productos=len(productos),
+    )
 
 
 @app.route("/logout", methods=["POST"])
@@ -146,30 +197,39 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route(
-    "/admin/productos/<int:producto_id>/precio",
-    methods=["POST"],
-)
-def actualizar_precio(producto_id):
+@app.route("/admin/productos/<int:producto_id>", methods=["POST"])
+def actualizar_producto(producto_id):
     if not session.get("admin"):
         return redirect(url_for("login"))
 
     precio_texto = request.form.get("precio", "").strip()
+    descripcion = request.form.get("descripcion", "").strip()
 
-    try:
-        precio = int(precio_texto)
-    except ValueError:
-        abort(400, description="El precio debe ser un número entero.")
+    if not re.fullmatch(r"(?:\d+|\d{1,3}(?:\.\d{3})+)", precio_texto):
+        abort(
+            400,
+            description=(
+                "Ingresá un precio entero, con puntos de miles opcionales."
+            ),
+        )
+
+    precio = int(precio_texto.replace(".", ""))
 
     if precio < 0 or precio > 2147483647:
         abort(400, description="El precio está fuera del rango permitido.")
+
+    if len(descripcion) > 2000:
+        abort(
+            400,
+            description="La descripción no puede superar los 2000 caracteres.",
+        )
 
     conexion = sqlite3.connect(DB_PATH)
 
     try:
         resultado = conexion.execute(
-            "UPDATE productos SET precio = ? WHERE id = ?",
-            (precio, producto_id),
+            "UPDATE productos SET precio = ?, descripcion = ? WHERE id = ?",
+            (precio, descripcion, producto_id),
         )
 
         if resultado.rowcount == 0:
@@ -179,4 +239,5 @@ def actualizar_precio(producto_id):
     finally:
         conexion.close()
 
+    flash("Cambios guardados correctamente.", "success")
     return redirect(url_for("admin"))
