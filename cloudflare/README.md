@@ -44,54 +44,50 @@ uv run pywrangler d1 migrations apply cumbre-menu-staging --local
 uv run pywrangler dev
 ```
 
-El servidor local de Wrangler usa una D1 local independiente. Se puede abrir en
+El servidor de Wrangler usa una D1 local independiente. Se puede abrir en
 `http://127.0.0.1:8787/`.
 
-## Crear y publicar el Worker de staging
+## Publicar el Worker de staging ya preparado
 
-1. Desde `cloudflare/worker/`, iniciar sesión en Cloudflare:
+La base remota `cumbre-menu-staging` ya está creada y cargada con los 118
+productos de prueba. Su ID está configurado en `wrangler.jsonc`. No vuelvas a
+crear la base ni a aplicar migraciones remotas.
 
-   ```bash
-   uv run pywrangler login
-   ```
+Desde la raíz del repositorio, generar los archivos públicos; después iniciar
+sesión y desplegar desde el directorio del Worker:
 
-2. Crear una base separada para la prueba:
+```bash
+python cloudflare/build_assets.py
+cd cloudflare/worker
+uv sync
+uv run pywrangler login
+uv run pywrangler deploy
+```
 
-   ```bash
-   uv run pywrangler d1 create cumbre-menu-staging
-   ```
+Después del primer despliegue, cargar secretos exclusivos para staging. Usa una
+clave nueva y una contraseña temporal que no coincidan con las del panel real:
 
-   Copiar el `database_id` que devuelve el comando en `wrangler.jsonc`, en lugar
-   del UUID de ejemplo `00000000-0000-4000-8000-000000000001`.
+```bash
+uv run pywrangler secret put SECRET_KEY
+uv run pywrangler secret put ADMIN_PASSWORD_HASH
+```
 
-3. Aplicar el esquema y los datos de prueba del catálogo (los precios y textos
-   provienen de `menu_productos.json`, nunca de la base en producción):
+Para generar el hash de la contraseña temporal:
 
-   ```bash
-   uv run pywrangler d1 migrations apply cumbre-menu-staging --remote
-   ```
+```bash
+uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: ")))'
+```
 
-4. Volver a la raíz del repositorio y preparar los assets; luego volver al
-   directorio Worker y cargar secretos exclusivos de staging. Los comandos
-   pedirán los valores de forma interactiva; no se guardan en Git:
+Wrangler solicitará cada valor en la terminal y no se guarda en Git. Si el
+Worker muestra errores antes de definir los secretos, vuelve a desplegarlo:
 
-   ```bash
-   cd ../..
-   python cloudflare/build_assets.py
-   cd cloudflare/worker
-   uv run pywrangler secret put SECRET_KEY
-   uv run pywrangler secret put ADMIN_PASSWORD_HASH
-   ```
+```bash
+uv run pywrangler deploy
+```
 
-5. Desplegar el Worker independiente:
-
-   ```bash
-   uv run pywrangler deploy
-   ```
-
-   Wrangler mostrará una dirección `workers.dev`. El archivo de configuración
-   no define dominio personalizado ni rutas, así que el Worker no recibe el
-   tráfico del QR ni reemplaza la carta de Pages.
+Wrangler mostrará una dirección `workers.dev`. El archivo de configuración no
+define dominio personalizado ni rutas, así que el Worker no recibe el tráfico
+del QR ni reemplaza la carta de Pages.
 
 ## Comprobaciones de staging
 
@@ -101,5 +97,5 @@ El servidor local de Wrangler usa una D1 local independiente. Se puede abrir en
 - Cerrar sesión y verificar que `/admin` vuelve a pedir acceso.
 - Revisar en Cloudflare Workers > Observability los errores y CPU por solicitud.
 
-La base D1 de staging es independiente. Las migraciones sembran valores de prueba
-desde el catálogo versionado. No importar ni vincular una base de producción.
+La base D1 de staging es independiente. Sus valores provienen del catálogo
+versionado; no importar ni vincular una base de producción.
