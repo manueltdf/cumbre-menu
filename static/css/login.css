@@ -40,7 +40,8 @@
 
 .login-page {
     --login-cream: #faf7f2;
-    --login-green: #103110;
+    --login-green: #103d32;
+    --login-banner: #003328;
     --login-error: #8b2929;
     box-sizing: border-box;
     display: grid;
@@ -63,11 +64,12 @@
 .login-card {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
     width: 100%;
     max-width: 400px;
     min-width: 0;
-    padding: 51px 43px;
+    padding: 0 43px 43px;
+    overflow: hidden;
     border: 1px solid var(--login-green);
     border-radius: 6px;
     background: var(--login-cream);
@@ -76,64 +78,19 @@
 }
 
 .login-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 170px;
+    height: 170px;
+    margin: 0 -43px;
+    background: var(--login-banner);
 }
 
-.login-brand__ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 12px;
-    font-family: "Lora", Georgia, serif;
-    font-size: 9px;
-    line-height: 12px;
-}
-
-.login-brand__ornament img {
+.login-brand__logo {
     display: block;
-    flex: none;
-}
-
-.login-brand__ornament span {
-    opacity: 0.7;
-}
-
-.login-brand__name {
-    margin: 0;
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 40px;
-    letter-spacing: 8px;
-    text-align: center;
-}
-
-.login-brand__location {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 11px;
-}
-
-.login-brand__location p {
-    margin: 0;
-    font-size: 9px;
-    font-weight: 400;
-    line-height: 11px;
-    letter-spacing: 4px;
-    white-space: nowrap;
-    opacity: 0.85;
-}
-
-.login-brand__location span {
-    font-size: 7px;
-    line-height: 8px;
-    opacity: 0.6;
+    width: 220px;
+    height: 160px;
+    object-fit: contain;
 }
 
 .login-form {
@@ -247,7 +204,19 @@
     }
 
     .login-card {
-        padding: 39px 27px;
+        gap: 32px;
+        padding: 0 27px 27px;
+    }
+
+    .login-brand {
+        flex-basis: 145px;
+        height: 145px;
+        margin: 0 -27px;
+    }
+
+    .login-brand__logo {
+        width: 198px;
+        height: 144px;
     }
 }
 
