@@ -10,17 +10,13 @@
 <body class="login-page">
     <main class="login-card" aria-label="Acceso de administración">
         <div class="login-brand">
-            <div class="login-brand__ornament" aria-hidden="true">
-                <img src="{{ url_for('static', filename='img/login/ornament-line.svg') }}" alt="" width="28" height="1">
-                <span>✦</span>
-                <img src="{{ url_for('static', filename='img/login/ornament-line.svg') }}" alt="" width="28" height="1">
-            </div>
-            <h1 class="login-brand__name">CUMBRE</h1>
-            <div class="login-brand__location">
-                <span aria-hidden="true">✦</span>
-                <p>VILLA TRAFUL</p>
-                <span aria-hidden="true">✦</span>
-            </div>
+            <img
+                class="login-brand__logo"
+                src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}"
+                alt="Cumbre Resto Bar — Villa Traful"
+                width="220"
+                height="160"
+            >
         </div>
 
         <form class="login-form" method="post" action="{{ url_for('login') }}">
