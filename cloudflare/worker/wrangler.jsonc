@@ -18,8 +18,7 @@
     {
       "binding": "DB",
       "database_name": "cumbre-menu-staging",
-      // Local-only placeholder; replace with the ID of the staging database.
-      "database_id": "00000000-0000-4000-8000-000000000001",
+      "database_id": "4bdf4f02-824d-4bea-88f3-9283fd54304e",
       "migrations_dir": "../migrations"
     }
   ]
