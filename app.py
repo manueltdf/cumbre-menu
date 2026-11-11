@@ -154,7 +154,7 @@ def _verificar_password_worker(password, password_hash):
     if (
         nombre_metodo != "pbkdf2"
         or digest != "sha256"
-        or not 100_000 <= iteraciones <= 1_000_000
+        or iteraciones != 100_000
         or len(sal) < 16
         or len(esperado) != 64
     ):
