@@ -21,12 +21,11 @@ cd cloudflare/worker
 uv sync
 ```
 
-Crear un archivo `.dev.vars` en `cloudflare/worker/` con credenciales solo de
-desarrollo. Generar una contraseña temporal y su hash localmente; no reutilizar
-la contraseña del panel real:
+Para `.dev.vars`, generar una contraseña temporal y un hash PBKDF2. No
+reutilizar la contraseña del panel real:
 
 ```bash
-uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: ")))'
+uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: "), method="pbkdf2:sha256:600000"))'
 ```
 
 Copiar el hash resultante como `ADMIN_PASSWORD_HASH` y usar una clave aleatoria
@@ -34,8 +33,11 @@ distinta como `SECRET_KEY`:
 
 ```dotenv
 SECRET_KEY=una-clave-local-larga-y-aleatoria
-ADMIN_PASSWORD_HASH=un-hash-scrypt-de-prueba
+ADMIN_PASSWORD_HASH=un-hash-pbkdf2-de-prueba
 ```
+
+El Worker verifica PBKDF2 con la API Web Crypto de Cloudflare. El Flask local
+sigue verificando los hashes de Werkzeug guardados en `.env`.
 
 Aplicar las migraciones a la base local y arrancar el Worker:
 
@@ -53,36 +55,44 @@ La base remota `cumbre-menu-staging` ya está creada y cargada con los 118
 productos de prueba. Su ID está configurado en `wrangler.jsonc`. No vuelvas a
 crear la base ni a aplicar migraciones remotas.
 
-Desde la raíz del repositorio, generar los archivos públicos; después iniciar
-sesión y desplegar desde el directorio del Worker:
+Desde la raíz del repositorio, generar los archivos públicos; después ir al
+directorio del Worker:
 
 ```bash
 python cloudflare/build_assets.py
 cd cloudflare/worker
 uv sync
-uv run pywrangler login
-uv run pywrangler deploy
 ```
 
-Después del primer despliegue, cargar secretos exclusivos para staging. Usa una
-clave nueva y una contraseña temporal que no coincidan con las del panel real:
+Actualizar el hash del archivo privado de secretos fuera del repositorio. El
+script conserva la clave `SECRET_KEY`, pide la contraseña sin mostrarla y
+reemplaza el hash antiguo por PBKDF2:
 
 ```bash
-uv run pywrangler secret put SECRET_KEY
-uv run pywrangler secret put ADMIN_PASSWORD_HASH
+uv run python - <<'PY'
+import json
+from getpass import getpass
+from pathlib import Path
+from werkzeug.security import generate_password_hash
+
+archivo = Path.home() / ".cumbre-menu-staging-secrets.json"
+datos = json.loads(archivo.read_text(encoding="utf-8"))
+password = getpass("Contraseña temporal de staging: ")
+if len(password) < 12:
+    raise SystemExit("Usá una contraseña de al menos 12 caracteres.")
+datos["ADMIN_PASSWORD_HASH"] = generate_password_hash(
+    password, method="pbkdf2:sha256:600000"
+)
+archivo.write_text(json.dumps(datos), encoding="utf-8")
+archivo.chmod(0o600)
+print("Hash PBKDF2 guardado en el archivo privado.")
+PY
 ```
 
-Para generar el hash de la contraseña temporal:
+Desplegar el Worker independiente e incluir esos secretos:
 
 ```bash
-uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: ")))'
-```
-
-Wrangler solicitará cada valor en la terminal y no se guarda en Git. Si el
-Worker muestra errores antes de definir los secretos, vuelve a desplegarlo:
-
-```bash
-uv run pywrangler deploy
+uv run pywrangler deploy --secrets-file "$HOME/.cumbre-menu-staging-secrets.json"
 ```
 
 Wrangler mostrará una dirección `workers.dev`. El archivo de configuración no
