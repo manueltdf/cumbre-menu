@@ -25,7 +25,7 @@ Para `.dev.vars`, generar una contraseña temporal y un hash PBKDF2. No
 reutilizar la contraseña del panel real:
 
 ```bash
-uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: "), method="pbkdf2:sha256:600000"))'
+uv run python -c 'from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass("Contraseña temporal: "), method="pbkdf2:sha256:100000"))'
 ```
 
 Copiar el hash resultante como `ADMIN_PASSWORD_HASH` y usar una clave aleatoria
@@ -81,7 +81,7 @@ password = getpass("Contraseña temporal de staging: ")
 if len(password) < 12:
     raise SystemExit("Usá una contraseña de al menos 12 caracteres.")
 datos["ADMIN_PASSWORD_HASH"] = generate_password_hash(
-    password, method="pbkdf2:sha256:600000"
+    password, method="pbkdf2:sha256:100000"
 )
 archivo.write_text(json.dumps(datos), encoding="utf-8")
 archivo.chmod(0o600)
