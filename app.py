@@ -141,6 +141,60 @@ def _actualizar_producto_en_db(producto_id, precio, descripcion):
         conexion.close()
 
 
+def _verificar_password_worker(password, password_hash):
+    """Verify Werkzeug PBKDF2 hashes using Workers Web Crypto via Pyodide."""
+    try:
+        metodo, sal, esperado = password_hash.split("$")
+        nombre_metodo, digest, iteraciones_texto = metodo.split(":")
+        iteraciones = int(iteraciones_texto)
+    except (AttributeError, TypeError, ValueError):
+        return False
+
+    # Keep work bounded if a malformed or unexpected hash is configured.
+    if (
+        nombre_metodo != "pbkdf2"
+        or digest != "sha256"
+        or not 100_000 <= iteraciones <= 1_000_000
+        or len(sal) < 16
+        or len(esperado) != 64
+    ):
+        return False
+
+    from js import Object, Uint8Array, crypto
+    from pyodide.ffi import to_js
+
+    clave = run_sync(
+        crypto.subtle.importKey(
+            "raw",
+            to_js(password.encode("utf-8")),
+            "PBKDF2",
+            False,
+            to_js(["deriveBits"]),
+        )
+    )
+    parametros = Object.new()
+    parametros.name = "PBKDF2"
+    parametros.salt = to_js(sal.encode("utf-8"))
+    parametros.iterations = iteraciones
+    parametros.hash = "SHA-256"
+
+    resultado = run_sync(crypto.subtle.deriveBits(parametros, clave, 256))
+    obtenido = Uint8Array.new(resultado).to_py().tobytes().hex()
+
+    # Compare all characters so the result does not reveal the first mismatch.
+    diferencia = 0
+    for caracter_obtenido, caracter_esperado in zip(obtenido, esperado):
+        diferencia |= ord(caracter_obtenido) ^ ord(caracter_esperado)
+    return diferencia == 0
+
+
+def _verificar_password(password):
+    password_hash = app.config["ADMIN_PASSWORD_HASH"]
+    if IS_CLOUDFLARE_WORKER:
+        return _verificar_password_worker(password, password_hash)
+    return check_password_hash(password_hash, password)
+
+
 @app.route("/static/<path:filename>", endpoint="static")
 def static_asset(filename):
     if not IS_CLOUDFLARE_WORKER:
@@ -354,9 +408,7 @@ def login():
     if request.method == "POST":
         password = request.form.get("password", "")
 
-        if check_password_hash(
-            app.config["ADMIN_PASSWORD_HASH"], password
-        ):
+        if _verificar_password(password):
             session.clear()
             session["admin"] = True
             return redirect(url_for("admin"))
