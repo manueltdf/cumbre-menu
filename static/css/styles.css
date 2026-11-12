@@ -546,8 +546,9 @@ img {
 }
 
 .footer__meta {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
     gap: 24px;
     clear: both;
     margin-top: 54px;
@@ -556,6 +557,42 @@ img {
     font-size: 0.74rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+}
+
+.footer__instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 9px;
+    color: var(--mint);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: none;
+    white-space: nowrap;
+    transition: color 160ms ease;
+}
+
+.footer__instagram:hover {
+    color: var(--paper);
+}
+
+.footer__instagram-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.footer__instagram-icon-dot {
+    fill: currentColor;
+    stroke: none;
 }
 
 
@@ -748,9 +785,17 @@ img {
     }
 
     .footer__meta {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 12px;
         margin-top: 34px;
         font-size: 0.62rem;
         letter-spacing: 0.08em;
+    }
+
+    .footer__instagram {
+        justify-self: start;
+        font-size: 0.72rem;
     }
 }
 
