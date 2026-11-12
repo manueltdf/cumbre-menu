@@ -44,7 +44,6 @@
                 <p class="eyebrow">Ruta 65 · Villa Traful</p>
                 <h1>Un lugar mágico<br>frente al lago.</h1>
                 <p class="hero__description">Para disfrutar de la gastronomía al ritmo de la montaña.</p>
-                <a class="hero__button" href="#carta">Explorá nuestra carta <span aria-hidden="true">↓</span></a>
             </div>
             <img class="hero__logo" src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}" alt="Cumbre Resto Bar">
         </div>
@@ -69,11 +68,10 @@
             </figure>
         </section>
 
-        <div class="menu-content" id="carta">
+        <div class="menu-content">
             {% for bloque in layout_carta %}
                 <section class="menu-chapter menu-chapter--{{ bloque.tema }}" id="{{ bloque.id }}" aria-labelledby="titulo-{{ bloque.id }}">
                     <header class="chapter-heading">
-                        <p class="eyebrow">{{ bloque.numero }}</p>
                         <div class="chapter-heading__row">
                             <h2 id="titulo-{{ bloque.id }}">{{ bloque.titulo }}</h2>
                             {% if bloque.descripcion %}<p>{{ bloque.descripcion }}</p>{% endif %}
@@ -106,7 +104,6 @@
 
             <section class="merch" id="merchandising" aria-labelledby="merch-title">
                 <header class="chapter-heading chapter-heading--merch">
-                    <p class="eyebrow">06 / MERCHANDISING</p>
                     <div class="chapter-heading__row">
                         <h2 id="merch-title">Llevate un poco de Cumbre</h2>
                         <p>Villa Traful, para llevar con vos.</p>
@@ -159,9 +156,9 @@
     </main>
 
     <footer class="footer">
-        <a class="footer__brand" href="#inicio" aria-label="Volver al inicio de Cumbre">CUMBRE <span>RESTO BAR</span></a>
+        <a class="footer__brand" href="#inicio">CUMBRE <span>RESTO BAR</span></a>
         <p>Gastronomía al ritmo de la montaña.</p>
-        <div class="footer__meta"><span>Ruta 65 · Villa Traful</span><a href="#inicio">Volver al inicio ↑</a></div>
+        <div class="footer__meta"><span>Ruta 65 · Villa Traful</span></div>
     </footer>
 </body>
 </html>

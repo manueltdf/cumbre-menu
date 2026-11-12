@@ -291,7 +291,6 @@ IMAGENES_MERCH = {
 LAYOUT_CARTA = (
     {
         "id": "sabores-de-montana",
-        "numero": "01 / NUESTRA CARTA",
         "titulo": "Sabores de montaña",
         "descripcion": "Sándwiches, hamburguesas y algo para compartir.",
         "tema": "verde",
@@ -304,7 +303,6 @@ LAYOUT_CARTA = (
     },
     {
         "id": "delicias-locales",
-        "numero": "02 / COCINA",
         "titulo": "Delicias locales",
         "descripcion": "Truchas, pastas y clásicos de nuestra cocina.",
         "tema": "verde",
@@ -317,7 +315,6 @@ LAYOUT_CARTA = (
     },
     {
         "id": "pausa-natural",
-        "numero": "03 / BEBIDAS SIN ALCOHOL",
         "titulo": "Una pausa natural",
         "descripcion": "",
         "tema": "tierra",
@@ -326,7 +323,6 @@ LAYOUT_CARTA = (
     },
     {
         "id": "brindar-frente-al-lago",
-        "numero": "04 / NUESTRA BARRA",
         "titulo": "Brindar frente al lago",
         "descripcion": "",
         "tema": "tierra",
@@ -338,7 +334,6 @@ LAYOUT_CARTA = (
     },
     {
         "id": "quedate-un-ratito-mas",
-        "numero": "05 / CAFETERÍA & MERIENDA",
         "titulo": "Quedate un ratito más",
         "descripcion": "",
         "tema": "terracota",
