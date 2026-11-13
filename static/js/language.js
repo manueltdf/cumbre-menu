@@ -3,7 +3,7 @@
         es: {
             pageTitle: 'Cumbre Restobar | Carta',
             metaDescription: 'Carta de Cumbre Restobar en Villa Traful.',
-            languageSelectorLabel: 'Idioma', routeLabel: 'Ruta 65 · Villa Traful', routeLine: 'Ruta 65 / Villa Traful',
+            routeLabel: 'Ruta 65 · Villa Traful', routeLine: 'Ruta 65 / Villa Traful',
             heroTitle: 'Un lugar mágico\nfrente al lago.',
             heroDescription: 'Para disfrutar de la gastronomía al ritmo de la montaña.',
             specialtiesLabel: 'Especialidades', specialtyMountain: 'Cocina de montaña',
@@ -31,7 +31,7 @@
         en: {
             pageTitle: 'Cumbre Restobar | Menu',
             metaDescription: 'Menu at Cumbre Restobar in Villa Traful.',
-            languageSelectorLabel: 'Choose language', routeLabel: 'Route 65 · Villa Traful', routeLine: 'Route 65 / Villa Traful',
+            routeLabel: 'Route 65 · Villa Traful', routeLine: 'Route 65 / Villa Traful',
             heroTitle: 'A magical place\nby the lake.',
             heroDescription: 'Mountain-inspired food, best enjoyed at your own pace.',
             specialtiesLabel: 'What we offer', specialtyMountain: 'Mountain cooking',
@@ -59,7 +59,7 @@
         pt: {
             pageTitle: 'Cumbre Restobar | Cardápio',
             metaDescription: 'Cardápio do Cumbre Restobar em Villa Traful.',
-            languageSelectorLabel: 'Escolha o idioma', routeLabel: 'Ruta 65 · Villa Traful', routeLine: 'Ruta 65 / Villa Traful',
+            routeLabel: 'Ruta 65 · Villa Traful', routeLine: 'Ruta 65 / Villa Traful',
             heroTitle: 'Um lugar mágico\nà beira do lago.',
             heroDescription: 'Sabores da montanha para aproveitar com calma.',
             specialtiesLabel: 'Especialidades', specialtyMountain: 'Cozinha da montanha',
