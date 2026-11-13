@@ -1,5 +1,4 @@
 (() => {
-    const languageNames = { es: 'Español', en: 'English', pt: 'português' };
     const translations = {
         es: {
             pageTitle: 'Cumbre Restobar | Carta',
@@ -12,7 +11,7 @@
             specialtyTraful: 'Un recuerdo de Traful',
             locationEyebrow: 'Gastronomía al ritmo de la montaña',
             locationTitle: 'La naturaleza nos inspira, el sabor te conquista.',
-            routeName: 'Ruta 65', mapAlt: 'Mapa de Villa Traful y la Ruta 65',
+            mapAlt: 'Mapa de Villa Traful y la Ruta 65',
             'chapter.sabores-de-montana.title': 'Sabores de montaña',
             'chapter.sabores-de-montana.description': 'Sándwiches, hamburguesas y algo para compartir.',
             'chapter.delicias-locales.title': 'Delicias locales',
@@ -22,7 +21,6 @@
             'chapter.quedate-un-ratito-mas.title': 'Quedate un ratito más',
             moreToEnjoy: 'Más para disfrutar',
             merchTitle: 'Llevate un poco de Cumbre',
-            merchDescription: 'Villa Traful, para llevar con vos.',
             merchSizesNote: 'consultar por talles y modelos',
             'merch.remeras': 'Remeras', 'merch.gorras': 'Gorras',
             merchCapsNote: 'Consultar colores y diseño',
@@ -41,7 +39,7 @@
             specialtyTraful: 'A taste of Traful',
             locationEyebrow: 'Mountain flavours',
             locationTitle: 'Inspired by nature, made to delight.',
-            routeName: 'Route 65', mapAlt: 'Map of Villa Traful and Route 65',
+            mapAlt: 'Map of Villa Traful and Route 65',
             'chapter.sabores-de-montana.title': 'Mountain flavours',
             'chapter.sabores-de-montana.description': 'Sandwiches, burgers & shareables.',
             'chapter.delicias-locales.title': 'Local favourites',
@@ -51,7 +49,6 @@
             'chapter.quedate-un-ratito-mas.title': 'Stay a little longer',
             moreToEnjoy: 'More to enjoy',
             merchTitle: 'Take Cumbre with you',
-            merchDescription: 'A taste of Villa Traful to take along.',
             merchSizesNote: 'Ask us about sizes and styles.',
             'merch.remeras': 'T-shirts', 'merch.gorras': 'Caps',
             merchCapsNote: 'Ask us about colors and designs.',
@@ -70,7 +67,7 @@
             specialtyTraful: 'Um sabor de Traful',
             locationEyebrow: 'Sabores da montanha, no ritmo da natureza',
             locationTitle: 'Inspirada pela natureza, feita para conquistar.',
-            routeName: 'Ruta 65', mapAlt: 'Mapa de Villa Traful e da Ruta 65',
+            mapAlt: 'Mapa de Villa Traful e da Ruta 65',
             'chapter.sabores-de-montana.title': 'Sabores da montanha',
             'chapter.sabores-de-montana.description': 'Sanduíches, hambúrgueres e pratos para compartilhar.',
             'chapter.delicias-locales.title': 'Sabores da região',
@@ -80,7 +77,6 @@
             'chapter.quedate-un-ratito-mas.title': 'Fique mais um pouquinho',
             moreToEnjoy: 'Mais para aproveitar',
             merchTitle: 'Leve Cumbre com você',
-            merchDescription: 'Villa Traful para levar com você.',
             merchSizesNote: 'Consulte tamanhos e modelos.',
             'merch.remeras': 'Camisetas', 'merch.gorras': 'Bonés',
             merchCapsNote: 'Consulte cores e modelos.',
