@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#003328">
-    <meta name="description" content="Carta de Cumbre Restobar en Villa Traful.">
-    <title>Cumbre Restobar | Carta</title>
+    <meta name="description" content="Carta de Cumbre Restobar en Villa Traful." data-i18n-content="metaDescription">
+    <title data-i18n="pageTitle">Cumbre Restobar | Carta</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/language.js') }}" defer></script>
 </head>
 <body id="inicio">
     {% macro categoria_card(nombre) %}
@@ -14,9 +15,9 @@
         {% if productos %}
         <section class="menu-card" id="categoria-{{ nombre|lower|replace(' ', '-')|replace('·', '') }}">
             <header class="menu-card__header">
-                <h3>{{ nombre }}</h3>
+                <h3 data-i18n-category="{{ nombre }}">{{ nombre }}</h3>
                 {% set subtitulo = subtitulos_categoria.get(nombre) %}
-                {% if subtitulo %}<p>{{ subtitulo }}</p>{% endif %}
+                {% if subtitulo %}<p data-i18n-subtitle="{{ nombre }}" data-i18n-es="{{ subtitulo }}">{{ subtitulo }}</p>{% endif %}
             </header>
             <div class="menu-card__items">
                 {% for producto in productos %}
@@ -41,30 +42,41 @@
     <header class="hero">
         <div class="hero__main">
             <div class="hero__copy">
-                <p class="eyebrow">Ruta 65 · Villa Traful</p>
-                <h1>Un lugar mágico<br>frente al lago.</h1>
-                <p class="hero__description">Para disfrutar de la gastronomía al ritmo de la montaña.</p>
+                <p class="eyebrow" data-i18n="routeLabel">Ruta 65 · Villa Traful</p>
+                <h1 data-i18n="heroTitle">Un lugar mágico<br>frente al lago.</h1>
+                <p class="hero__description" data-i18n="heroDescription">Para disfrutar de la gastronomía al ritmo de la montaña.</p>
             </div>
             <img class="hero__logo" src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}" alt="Cumbre Resto Bar">
         </div>
-        <div class="hero__keywords" aria-label="Especialidades">
-            <span>Cocina de montaña</span>
-            <span>Tragos de autor</span>
-            <span>Cafetería y merienda</span>
-            <span>Un recuerdo de Traful</span>
+        <div class="hero__keywords" aria-label="Especialidades" data-i18n-aria="specialtiesLabel">
+            <span data-i18n="specialtyMountain">Cocina de montaña</span>
+            <span data-i18n="specialtyDrinks">Tragos de autor</span>
+            <span data-i18n="specialtyCoffee">Cafetería y merienda</span>
+            <span data-i18n="specialtyTraful">Un recuerdo de Traful</span>
         </div>
     </header>
+
+    <nav class="language-selector" aria-label="Elegir idioma" data-i18n-aria="languageSelectorLabel">
+        <div class="language-selector__inner">
+            <span class="language-selector__label" data-i18n="languageSelectorLabel">Idioma</span>
+            <div class="language-selector__options" role="group" aria-label="Idioma" data-i18n-aria="languageSelectorLabel">
+                <button type="button" data-language="es" aria-pressed="true">Español</button>
+                <button type="button" data-language="en" aria-pressed="false">English</button>
+                <button type="button" data-language="pt" aria-pressed="false">português</button>
+            </div>
+        </div>
+    </nav>
 
     <main>
         <section class="location" aria-labelledby="location-title">
             <div class="location__copy">
-                <p class="eyebrow eyebrow--orange">Gastronomía al ritmo de la montaña</p>
-                <h2 id="location-title">La naturaleza nos inspira, el sabor te conquista.</h2>
-                <p class="location__route">Ruta 65 / Villa Traful</p>
+                <p class="eyebrow eyebrow--orange" data-i18n="locationEyebrow">Gastronomía al ritmo de la montaña</p>
+                <h2 id="location-title" data-i18n="locationTitle">La naturaleza nos inspira, el sabor te conquista.</h2>
+                <p class="location__route" data-i18n="routeLine">Ruta 65 / Villa Traful</p>
             </div>
             <figure class="location__map">
-                <figcaption><span>Villa Traful</span><span>Ruta 65</span></figcaption>
-                <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65">
+                <figcaption><span>Villa Traful</span><span data-i18n="routeName">Ruta 65</span></figcaption>
+                <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65" data-i18n-alt="mapAlt">
             </figure>
         </section>
 
@@ -73,8 +85,8 @@
                 <section class="menu-chapter menu-chapter--{{ bloque.tema }}" id="{{ bloque.id }}" aria-labelledby="titulo-{{ bloque.id }}">
                     <header class="chapter-heading">
                         <div class="chapter-heading__row">
-                            <h2 id="titulo-{{ bloque.id }}">{{ bloque.titulo }}</h2>
-                            {% if bloque.descripcion %}<p>{{ bloque.descripcion }}</p>{% endif %}
+                            <h2 id="titulo-{{ bloque.id }}" data-i18n="chapter.{{ bloque.id }}.title">{{ bloque.titulo }}</h2>
+                            {% if bloque.descripcion %}<p data-i18n="chapter.{{ bloque.id }}.description">{{ bloque.descripcion }}</p>{% endif %}
                         </div>
                     </header>
 
@@ -92,7 +104,7 @@
                 <section class="menu-chapter menu-chapter--verde" aria-labelledby="titulo-otras-opciones">
                     <header class="chapter-heading">
                         <p class="eyebrow">CUMBRE · VILLA TRAFUL</p>
-                        <div class="chapter-heading__row"><h2 id="titulo-otras-opciones">Más para disfrutar</h2></div>
+                        <div class="chapter-heading__row"><h2 id="titulo-otras-opciones" data-i18n="moreToEnjoy">Más para disfrutar</h2></div>
                     </header>
                     <div class="menu-grid menu-grid--2">
                         {% for nombre_categoria, productos in categorias_sin_layout.items() %}
@@ -105,10 +117,10 @@
             <section class="merch" id="merchandising" aria-labelledby="merch-title">
                 <header class="chapter-heading chapter-heading--merch">
                     <div class="chapter-heading__row">
-                        <h2 id="merch-title">Llevate un poco de Cumbre</h2>
-                        <p>Villa Traful, para llevar con vos.</p>
+                        <h2 id="merch-title" data-i18n="merchTitle">Llevate un poco de Cumbre</h2>
+                        <p data-i18n="merchDescription">Villa Traful, para llevar con vos.</p>
                     </div>
-                    <p class="merch__note">consultar por talles y modelos</p>
+                    <p class="merch__note" data-i18n="merchSizesNote">consultar por talles y modelos</p>
                 </header>
 
                 {% for categoria, etiqueta in [
@@ -119,8 +131,8 @@
                     {% if productos %}
                         <section class="merch-group" aria-labelledby="titulo-{{ etiqueta|lower }}">
                             <header class="merch-group__heading">
-                                <h3 id="titulo-{{ etiqueta|lower }}">{{ etiqueta }}</h3>
-                                {% if etiqueta == "Gorras" %}<p>Consultar colores y diseño</p>{% endif %}
+                                <h3 id="titulo-{{ etiqueta|lower }}" data-i18n="merch.{{ etiqueta|lower }}">{{ etiqueta }}</h3>
+                                {% if etiqueta == "Gorras" %}<p data-i18n="merchCapsNote">Consultar colores y diseño</p>{% endif %}
                             </header>
                             <div class="merch-grid merch-grid--{{ etiqueta|lower }}">
                                 {% for producto in productos %}
@@ -133,6 +145,7 @@
                                                         <img
                                                             src="{{ url_for('static', filename='img/merchandising/' ~ archivo) }}"
                                                             alt="{{ producto['nombre'] }} — {{ 'producto' if loop.first else 'foto en uso' }}"
+                                                            data-i18n-merch-alt="{{ 'product' if loop.first else 'inUsePhoto' }}"
                                                             loading="lazy"
                                                         >
                                                     </div>
@@ -157,15 +170,16 @@
 
     <footer class="footer">
         <a class="footer__brand" href="#inicio">CUMBRE <span>RESTO BAR</span></a>
-        <p>Gastronomía al ritmo de la montaña.</p>
+        <p data-i18n="footerTagline">Gastronomía al ritmo de la montaña.</p>
         <div class="footer__meta">
-            <span>Ruta 65 · Villa Traful</span>
+            <span data-i18n="routeLabel">Ruta 65 · Villa Traful</span>
             <a
                 class="footer__instagram"
                 href="https://www.instagram.com/cumbrebar.traful/?hl=es"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Perfil de Instagram de Cumbre Restobar, @cumbrebar.traful"
+                data-i18n-aria="instagramLabel"
             >
                 <svg class="footer__instagram-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <rect x="3" y="3" width="18" height="18" rx="5"></rect>
