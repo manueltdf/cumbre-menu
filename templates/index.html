@@ -75,7 +75,6 @@
                 <p class="location__route" data-i18n="routeLine">Ruta 65 / Villa Traful</p>
             </div>
             <figure class="location__map">
-                <figcaption><span>Villa Traful</span><span data-i18n="routeName">Ruta 65</span></figcaption>
                 <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65" data-i18n-alt="mapAlt">
             </figure>
         </section>
@@ -90,13 +89,25 @@
                         </div>
                     </header>
 
-                    {% for fila in bloque.filas %}
-                        <div class="menu-grid menu-grid--{{ fila|length }}">
-                            {% for nombre_categoria in fila %}
-                                {% if nombre_categoria %}{{ categoria_card(nombre_categoria) }}{% endif %}
-                            {% endfor %}
+                    {% if bloque.id == "brindar-frente-al-lago" %}
+                        <div class="menu-grid menu-grid--beverage-flow">
+                            <div class="menu-grid__column">
+                                {{ categoria_card("Tragos de autor") }}
+                                {{ categoria_card("Bebidas con alcohol") }}
+                            </div>
+                            <div class="menu-grid__column">
+                                {{ categoria_card("Cocktails") }}
+                            </div>
                         </div>
-                    {% endfor %}
+                    {% else %}
+                        {% for fila in bloque.filas %}
+                            <div class="menu-grid menu-grid--{{ fila|length }}">
+                                {% for nombre_categoria in fila %}
+                                    {% if nombre_categoria %}{{ categoria_card(nombre_categoria) }}{% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </section>
             {% endfor %}
 
@@ -118,7 +129,6 @@
                 <header class="chapter-heading chapter-heading--merch">
                     <div class="chapter-heading__row">
                         <h2 id="merch-title" data-i18n="merchTitle">Llevate un poco de Cumbre</h2>
-                        <p data-i18n="merchDescription">Villa Traful, para llevar con vos.</p>
                     </div>
                     <p class="merch__note" data-i18n="merchSizesNote">consultar por talles y modelos</p>
                 </header>
