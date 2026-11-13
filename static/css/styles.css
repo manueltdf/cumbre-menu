@@ -238,24 +238,6 @@ img {
     margin: 0;
 }
 
-.location__map figcaption {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 16px;
-    color: var(--forest);
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-
-.location__map figcaption span:first-child {
-    font-family: "Cumbre Serif", Georgia, serif;
-    font-size: 1.7rem;
-    letter-spacing: 0;
-    text-transform: none;
-}
-
 .location__map img {
     display: block;
     width: 100%;
@@ -334,6 +316,18 @@ img {
 
 .menu-grid--3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.menu-grid--beverage-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.menu-grid--beverage-flow > .menu-grid__column {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: clamp(34px, 4.5vw, 72px);
+    min-width: 0;
 }
 
 .menu-card {
@@ -731,10 +725,6 @@ img {
         font-size: clamp(2.35rem, 10vw, 3.4rem);
     }
 
-    .location__map figcaption span:first-child {
-        font-size: 1.35rem;
-    }
-
     .menu-chapter {
         margin-bottom: 90px;
     }
@@ -763,6 +753,10 @@ img {
         grid-template-columns: 1fr;
         gap: 28px;
         margin-top: 28px;
+    }
+
+    .menu-grid--beverage-flow > .menu-grid__column {
+        display: contents;
     }
 
     .menu-grid:first-of-type {
