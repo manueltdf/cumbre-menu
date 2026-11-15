@@ -732,6 +732,7 @@
             "Café com leite duplo"
         ]
     };
+    productRows['Milanesas::Clásica::'] = ['Clásica', 'Classic', 'Clássica'];
     const categories = {
         'Sándwiches': ['Sandwiches', 'Sanduíches'],
         'Hamburguesas': ['Burgers', 'Hambúrgueres'],
@@ -815,7 +816,7 @@
         });
         document.querySelectorAll('[data-i18n-product]').forEach(node => {
             const productKey = node.dataset.i18nProduct;
-            const pair = productRows[productKey] || products[productKey.split('::')[0]];
+            const pair = productRows[node.dataset.i18nProductCategory + '::' + productKey] || productRows[productKey] || products[productKey.split('::')[0]];
             if (pair) node.textContent = pair[index + 1];
         });
         document.querySelectorAll('[data-i18n-variant]').forEach(node => {
