@@ -1,143 +1,874 @@
-:root {
-    --fondo: #f6f2e9;
-    --papel: #fffdf8;
-    --verde: #1e3d2f;
-    --tierra: #79553b;
-    --texto: #292b26;
-    --borde: #dcd6c9;
+@font-face {
+    font-family: "Cumbre Sans";
+    src: url("../fonts/login/inter-400.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 }
 
-* {
+@font-face {
+    font-family: "Cumbre Sans";
+    src: url("../fonts/login/inter-600.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 600 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cumbre Serif";
+    src: url("../fonts/login/lora-400.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --forest: #003328;
+    --forest-soft: #174b3e;
+    --earth: #493625;
+    --terracotta: #b34b00;
+    --mint: #a9ddce;
+    --paper: #fbfaf5;
+    --paper-warm: #f5f1e8;
+    --ink: #18382f;
+    --muted: #66736d;
+    --rule: #b7c8bd;
+    --content-width: 1600px;
+    font-family: "Cumbre Sans", Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
 }
 
 body {
     margin: 0;
-    background-color: var(--fondo);
-    color: var(--texto);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Cumbre Sans", Arial, sans-serif;
+    line-height: 1.5;
 }
 
-header {
-    padding: 48px 20px;
-    background-color: var(--verde);
-    color: var(--papel);
-    text-align: center;
+img {
+    max-width: 100%;
 }
 
-header h1 {
-    margin: 0;
-    font-family: Georgia, serif;
-    font-size: clamp(2rem, 6vw, 3.5rem);
+.hero {
+    padding: 22px clamp(24px, 6.7vw, 120px) 0;
+    background: var(--forest);
+    color: var(--paper);
 }
 
-header p {
-    margin: 8px 0 0;
-}
-
-main {
-    max-width: 1000px;
+.hero__main {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 90px);
+    width: min(100%, var(--content-width));
+    min-height: 560px;
     margin: 0 auto;
-    padding: 32px 20px;
+    padding: 20px 0 38px;
 }
 
-h2 {
-    color: var(--verde);
-    font-family: Georgia, serif;
+.hero__copy {
+    max-width: 680px;
 }
 
-section {
-    margin-bottom: 28px;
-    padding: 24px;
-    border: 1px solid var(--borde);
-    border-radius: 12px;
-    background-color: var(--papel);
-}
-
-section h3 {
-    margin: 0 0 16px;
-    color: var(--verde);
-    font-family: Georgia, serif;
-    font-size: 1.5rem;
-}
-
-article {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--borde);
-}
-
-article:last-child {
-    border-bottom: none;
-}
-
-article h4 {
+.eyebrow {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
-article p {
-    margin: 6px 0 0;
+.hero h1 {
+    margin: 35px 0 20px;
+    color: var(--paper);
+    font-family: "Cumbre Serif", Georgia, serif;
+    font-size: clamp(3rem, 6.2vw, 6.3rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 1.03;
 }
 
-article p:last-child {
-    color: var(--tierra);
-    font-weight: bold;
+.hero__description {
+    max-width: 530px;
+    margin: 0;
+    color: #b9d9cf;
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    line-height: 1.55;
 }
 
-@media (max-width: 600px) {
-    section {
-        padding: 16px;
-    }
+
+.footer a:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 4px;
 }
 
-.categorias {
+.hero__logo {
+    display: block;
+    width: min(100%, 700px);
+    height: auto;
+    justify-self: end;
+    background: var(--forest);
+}
+
+.hero__keywords {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 14px 20px;
-    background-color: var(--papel);
-    border-bottom: 1px solid var(--borde);
+    justify-content: space-between;
+    gap: 24px;
+    width: min(100%, var(--content-width));
+    margin: 0 auto;
+    padding: 22px 0 25px;
+    border-top: 1px dotted #84aaa0;
+    color: #f0f4ef;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.categorias a {
-    flex-shrink: 0;
+.language-selector {
+    padding: 18px clamp(24px, 6.7vw, 120px);
+    background: var(--paper);
+}
+
+.language-selector__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+    width: min(100%, var(--content-width));
+    margin: 0 auto;
+}
+
+.language-selector__label {
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.language-selector__options {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper-warm);
+}
+
+.language-selector__options button {
+    min-height: 38px;
     padding: 8px 14px;
-    border: 1px solid var(--borde);
-    border-radius: 20px;
-    color: var(--verde);
-    text-decoration: none;
-    font-weight: bold;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--forest);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.categorias a:hover {
-    background-color: var(--verde);
-    color: var(--papel);
+.language-selector__options button[aria-pressed="true"] {
+    background: var(--forest);
+    color: var(--paper);
 }
 
-.categorias a:focus-visible {
-    outline: 3px solid var(--tierra);
+.language-selector__options button:focus-visible {
+    outline: 3px solid var(--terracotta);
     outline-offset: 2px;
 }
 
-section {
-    scroll-margin-top: 20px;
-}
-
-.galeria-merch {
+.location {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    max-width: 640px;
-    margin-bottom: 16px;
+    grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.28fr);
+    align-items: center;
+    gap: clamp(48px, 7vw, 120px);
+    width: min(calc(100% - 2 * clamp(24px, 6.7vw, 120px)), var(--content-width));
+    margin: 0 auto;
+    padding: clamp(72px, 8vw, 130px) 0;
 }
 
-.galeria-merch img {
+.eyebrow--orange {
+    color: var(--terracotta);
+}
+
+.location h2,
+.chapter-heading h2,
+.footer__brand {
+    font-family: "Cumbre Serif", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+}
+
+.location h2 {
+    max-width: 600px;
+    margin: 24px 0 26px;
+    color: var(--forest);
+    font-size: clamp(2.45rem, 4vw, 4rem);
+    line-height: 1.12;
+}
+
+.location__route {
+    margin: 0;
+    padding-top: 22px;
+    border-top: 1px dotted #9db9ac;
+    color: var(--forest);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.location__map {
+    min-width: 0;
+    margin: 0;
+}
+
+.location__map img {
     display: block;
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
+    border: 1px solid #31473c;
+}
+
+.menu-content {
+    width: min(calc(100% - 2 * clamp(24px, 6.7vw, 120px)), var(--content-width));
+    margin: 0 auto;
+}
+
+.menu-chapter {
+    --chapter-color: var(--forest);
+    --category-color: var(--forest);
+    margin: 0 0 clamp(110px, 12vw, 190px);
+    scroll-margin-top: 24px;
+}
+
+.menu-chapter--tierra {
+    --chapter-color: var(--earth);
+    --category-color: var(--earth);
+}
+
+.menu-chapter--terracota {
+    --chapter-color: var(--terracotta);
+    --category-color: var(--terracotta);
+}
+
+.chapter-heading {
+    margin-bottom: 52px;
+    padding-bottom: 25px;
+    border-bottom: 1px dotted var(--chapter-color);
+}
+
+.chapter-heading > .eyebrow {
+    color: var(--chapter-color);
+}
+
+.chapter-heading__row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 36px;
+    margin-top: 22px;
+}
+
+.chapter-heading h2 {
+    max-width: 850px;
+    margin: 0;
+    color: var(--chapter-color);
+    font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+    line-height: 1.05;
+}
+
+.chapter-heading__row > p {
+    max-width: 360px;
+    margin: 0 0 6px;
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+.menu-grid {
+    display: grid;
+    align-items: start;
+    gap: clamp(34px, 4.5vw, 72px) clamp(40px, 4.5vw, 76px);
+    margin-top: 40px;
+}
+
+.menu-grid:first-of-type {
+    margin-top: 0;
+}
+
+.menu-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.menu-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.menu-grid--beverage-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.menu-grid--beverage-flow > .menu-grid__column {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: clamp(34px, 4.5vw, 72px);
+    min-width: 0;
+}
+
+.menu-card {
+    min-width: 0;
+}
+
+.menu-card__header {
+    min-height: 76px;
+    margin-bottom: 0;
+    padding: 15px 19px;
+    background: var(--category-color);
+    color: white;
+}
+
+.menu-card__header h3 {
+    margin: 0;
+    font-family: "Cumbre Serif", Georgia, serif;
+    font-size: clamp(1.5rem, 2.3vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+.menu-card__header p {
+    margin: 4px 0 0;
+    font-size: 0.84rem;
+}
+
+.menu-card__items {
+    padding: 0 1px;
+}
+
+.menu-item {
+    padding: 20px 0 17px;
+    border-bottom: 1px dotted var(--rule);
+}
+
+.menu-item__heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.menu-item h4,
+.merch-product h4 {
+    margin: 0;
+    color: #243b33;
+    font-size: clamp(0.88rem, 1.05vw, 1.02rem);
+    font-weight: 800;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.menu-item__variant {
+    font-weight: 500;
+    text-transform: none;
+}
+
+.menu-item__price {
+    display: inline-block;
+    flex: 0 0 auto;
+    padding: 2px 9px 3px;
+    background: var(--mint);
+    color: var(--forest);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: nowrap;
+}
+
+.menu-item__description {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.menu-chapter--delicias-locales .menu-grid:first-of-type .menu-card:first-child {
+    padding: 15px;
+    border: 1px solid var(--forest);
+}
+
+.menu-chapter--delicias-locales .menu-grid:first-of-type .menu-card:first-child .menu-card__header {
+    margin: 0 0 1px;
+}
+
+.menu-chapter--pausa-natural .menu-card__header {
+    min-height: 88px;
+}
+
+.menu-chapter--brindar-frente-al-lago .menu-grid:first-of-type .menu-card:first-child {
+    padding: 15px;
+    border: 1px solid var(--earth);
+}
+
+.menu-chapter--terracota .menu-card__header {
+    background: var(--terracotta);
+}
+
+.menu-chapter--brindar-frente-al-lago .menu-grid:nth-of-type(2) {
+    margin-top: 40px;
+}
+
+.merch {
+    margin: 0 auto clamp(100px, 12vw, 180px);
+    scroll-margin-top: 24px;
+}
+
+.chapter-heading--merch .chapter-heading__row {
+    align-items: center;
+}
+
+.merch__note {
+    margin: 20px 0 0;
+    color: var(--earth);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.merch-group {
+    margin-top: 68px;
+}
+
+.merch-group__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 24px;
+    color: var(--earth);
+}
+
+.merch-group__heading h3 {
+    margin: 0;
+    font-family: "Cumbre Serif", Georgia, serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+}
+
+.merch-group__heading p {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.merch-grid {
+    display: grid;
+    align-items: start;
+    gap: 30px;
+}
+
+.merch-grid--remeras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.merch-grid--gorras {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.merch-product {
+    min-width: 0;
+}
+
+.merch-product__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 260px;
+    overflow: hidden;
+    background: var(--forest);
+}
+
+.merch-grid--gorras .merch-product__gallery {
+    min-height: 240px;
+}
+
+.merch-product__image {
+    display: grid;
+    min-width: 0;
+    min-height: 100%;
+    place-items: center;
+    overflow: hidden;
+    background: var(--earth);
+}
+
+.merch-product__image--1 {
+    background: var(--forest);
+}
+
+.merch-product__image--2 {
+    background: var(--paper-warm);
+}
+
+.merch-product__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
     object-fit: contain;
-    background-color: var(--fondo);
-    border-radius: 8px;
+}
+
+.merch-product__image--2 img {
+    object-fit: cover;
+}
+
+.merch-grid--gorras .merch-product__image img {
+    min-height: 220px;
+}
+
+.merch-product__details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 8px 16px;
+    padding: 16px 0 19px;
+    border-bottom: 1px dotted var(--rule);
+}
+
+.merch-product__details h4 {
+    color: var(--forest);
+}
+
+.merch-product__details p {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.footer {
+    padding: 65px clamp(24px, 6.7vw, 120px) 25px;
+    background: var(--forest);
+    color: var(--paper);
+}
+
+.footer__brand {
+    display: inline-flex;
+    flex-direction: column;
+    color: var(--paper);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1;
+    text-decoration: none;
+}
+
+.footer__brand span {
+    margin-top: 10px;
+    font-family: "Cumbre Sans", Arial, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.43em;
+}
+
+.footer > p {
+    float: right;
+    max-width: 440px;
+    margin: 0;
+    color: #b9d9cf;
+    font-family: "Cumbre Serif", Georgia, serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    text-align: right;
+}
+
+.footer__meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    clear: both;
+    margin-top: 54px;
+    padding-top: 20px;
+    border-top: 1px dotted #84aaa0;
+    font-size: 0.74rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.footer__instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 9px;
+    color: var(--mint);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: none;
+    white-space: nowrap;
+    transition: color 160ms ease;
+}
+
+.footer__instagram:hover {
+    color: var(--paper);
+}
+
+.footer__instagram-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.footer__instagram-icon-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+@media (max-width: 1100px) {
+    .hero__main {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+    }
+
+    .menu-grid--3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .merch-grid--gorras {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        padding: 12px 22px 0;
+    }
+
+    .hero__main {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        min-height: auto;
+        padding: 12px 0 30px;
+    }
+
+    .hero__logo {
+        grid-row: 1;
+        width: min(100%, 380px);
+        justify-self: center;
+    }
+
+    .hero__copy {
+        max-width: none;
+    }
+
+    .hero h1 {
+        margin: 22px 0 14px;
+        font-size: clamp(2.8rem, 12vw, 4rem);
+    }
+
+
+    .hero__keywords {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 20px;
+        padding: 18px 0;
+        font-size: 0.61rem;
+        letter-spacing: 0.12em;
+    }
+
+    .language-selector {
+        padding: 14px 20px;
+    }
+
+    .language-selector__inner {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .language-selector__options button {
+        min-height: 36px;
+        padding: 7px 11px;
+        font-size: 0.73rem;
+    }
+
+    .location,
+    .menu-content {
+        width: calc(100% - 40px);
+    }
+
+    .location {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 65px 0 75px;
+    }
+
+    .location h2 {
+        margin: 18px 0 20px;
+        font-size: clamp(2.35rem, 10vw, 3.4rem);
+    }
+
+    .menu-chapter {
+        margin-bottom: 90px;
+    }
+
+    .chapter-heading {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+
+    .chapter-heading__row {
+        display: block;
+        margin-top: 16px;
+    }
+
+    .chapter-heading h2 {
+        font-size: clamp(2.4rem, 10vw, 3.8rem);
+    }
+
+    .chapter-heading__row > p {
+        margin-top: 12px;
+    }
+
+    .menu-grid,
+    .menu-grid--2,
+    .menu-grid--3 {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-top: 28px;
+    }
+
+    .menu-grid--beverage-flow > .menu-grid__column {
+        display: contents;
+    }
+
+    .menu-grid:first-of-type {
+        margin-top: 0;
+    }
+
+    .menu-card__header,
+    .menu-chapter--pausa-natural .menu-card__header {
+        min-height: 0;
+        padding: 12px 15px;
+    }
+
+    .menu-card__header h3 {
+        font-size: 1.65rem;
+    }
+
+    .menu-item {
+        padding: 15px 0 13px;
+    }
+
+    .menu-item h4 {
+        font-size: 0.86rem;
+    }
+
+    .menu-item__price {
+        font-size: 0.88rem;
+    }
+
+    .menu-item__description {
+        font-size: 0.85rem;
+    }
+
+    .menu-chapter--delicias-locales .menu-grid:first-of-type .menu-card:first-child,
+    .menu-chapter--brindar-frente-al-lago .menu-grid:first-of-type .menu-card:first-child {
+        padding: 10px;
+    }
+
+    .merch {
+        margin-bottom: 80px;
+    }
+
+    .chapter-heading--merch .chapter-heading__row {
+        display: block;
+    }
+
+    .merch__note {
+        margin-top: 15px;
+        font-size: 0.75rem;
+    }
+
+    .merch-group {
+        margin-top: 48px;
+    }
+
+    .merch-group__heading {
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .merch-group__heading p {
+        margin-top: 4px;
+    }
+
+    .merch-grid--remeras,
+    .merch-grid--gorras {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .merch-product__gallery,
+    .merch-grid--gorras .merch-product__gallery {
+        min-height: 230px;
+    }
+
+    .merch-product__image img,
+    .merch-grid--gorras .merch-product__image img {
+        min-height: 210px;
+    }
+
+    .footer {
+        padding: 46px 22px 20px;
+    }
+
+    .footer > p {
+        float: none;
+        margin-top: 24px;
+        text-align: left;
+    }
+
+    .footer__meta {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 12px;
+        margin-top: 34px;
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+    }
+
+    .footer__instagram {
+        justify-self: start;
+        font-size: 0.72rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
 }
