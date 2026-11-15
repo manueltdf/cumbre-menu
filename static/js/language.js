@@ -645,6 +645,93 @@
             "duplo"
         ]
     };
+    const productRows =     {
+        "Carne::3 unidades": [
+            "Carne (3 unidades)",
+            "Beef empanadas (3 pieces)",
+            "Empanadas de carne (3 unidades)"
+        ],
+        "Hongos::3 unidades": [
+            "Hongos (3 unidades)",
+            "Mushroom empanadas (3 pieces)",
+            "Empanadas de cogumelos (3 unidades)"
+        ],
+        "Jamón y queso::3 unidades": [
+            "Jamón y queso (3 unidades)",
+            "Ham and cheese empanadas (3 pieces)",
+            "Empanadas de presunto e queijo (3 unidades)"
+        ],
+        "Picada cumbrera::Para 2 personas": [
+            "Picada cumbrera (para 2 personas)",
+            "Cumbre sharing platter (for 2)",
+            "Tábua Cumbre para compartilhar (para 2 pessoas)"
+        ],
+        "Cerveza artesanal::Lata": [
+            "Cerveza artesanal (lata)",
+            "Craft beer (can)",
+            "Cerveja artesanal (lata)"
+        ],
+        "Cerveza artesanal::Pinta": [
+            "Cerveza artesanal (pinta)",
+            "Craft beer (pint)",
+            "Cerveja artesanal (pint)"
+        ],
+        "Cerveza Heineken::Lata": [
+            "Cerveza Heineken (lata)",
+            "Heineken beer (can)",
+            "Cerveja Heineken (lata)"
+        ],
+        "Espumante::Lata": [
+            "Espumante (lata)",
+            "Sparkling wine (can)",
+            "Espumante (lata)"
+        ],
+        "Fernet cola::Jarrito": [
+            "Fernet cola (jarrito)",
+            "Fernet and cola (mug)",
+            "Fernet com Coca-Cola (caneca)"
+        ],
+        "Fernet cola::Pinta": [
+            "Fernet cola (pinta)",
+            "Fernet and cola (pint)",
+            "Fernet com Coca-Cola (pint)"
+        ],
+        "Café::Pocillo": [
+            "Café (pocillo)",
+            "Coffee (small cup)",
+            "Café (xícara pequena)"
+        ],
+        "Café::Jarrito": [
+            "Café (jarrito)",
+            "Coffee (mug)",
+            "Café (caneca)"
+        ],
+        "Café::Doble": [
+            "Café (doble)",
+            "Double coffee",
+            "Café duplo"
+        ],
+        "Cortado::Jarrito": [
+            "Cortado (jarrito)",
+            "Cortado (mug)",
+            "Cortado (caneca)"
+        ],
+        "Lágrima::Jarrito": [
+            "Lágrima (jarrito)",
+            "Lágrima (mug)",
+            "Lágrima (caneca)"
+        ],
+        "Lágrima::Doble": [
+            "Lágrima (doble)",
+            "Double lágrima",
+            "Lágrima dupla"
+        ],
+        "Café con leche::Doble": [
+            "Café con leche (doble)",
+            "Double café au lait",
+            "Café com leite duplo"
+        ]
+    };
     const categories = {
         'Sándwiches': ['Sandwiches', 'Sanduíches'],
         'Hamburguesas': ['Burgers', 'Hambúrgueres'],
@@ -727,7 +814,8 @@
             else node.textContent = node.dataset.i18nEs || node.dataset.i18nSubtitle;
         });
         document.querySelectorAll('[data-i18n-product]').forEach(node => {
-            const pair = products[node.dataset.i18nProduct];
+            const productKey = node.dataset.i18nProduct;
+            const pair = productRows[productKey] || products[productKey.split('::')[0]];
             if (pair) node.textContent = pair[index + 1];
         });
         document.querySelectorAll('[data-i18n-variant]').forEach(node => {
