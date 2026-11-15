@@ -24,8 +24,8 @@
             <div class="admin-banner__actions">
                 <a class="admin-banner__public" href="{{ url_for('inicio') }}">Ver menú público</a>
                 <form class="admin-banner__logout" method="post" action="{{ url_for('logout') }}">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit">Cerrar sesión</button>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit">Cerrar sesión</button>
                 </form>
             </div>
         </div>
