@@ -24,8 +24,12 @@
                     <article class="menu-item">
                         <div class="menu-item__heading">
                             <h4>
-                                {{ producto["nombre"] }}
-                                {% if producto["variante"] %}<span class="menu-item__variant">· {{ producto["variante"] }}</span>{% endif %}
+                                {% if producto["categoria"].startswith("Merchandising") %}
+                                    {{ producto["nombre"] }}
+                                {% else %}
+                                    <span data-i18n-product="{{ producto['nombre'] }}">{{ producto["nombre"] }}</span>
+                                {% endif %}
+                                {% if producto["variante"] %}<span class="menu-item__variant" data-i18n-variant="{{ producto['variante'] }}">· {{ producto["variante"] }}</span>{% endif %}
                             </h4>
                             <span class="menu-item__price">{{ producto["precio"] | pesos }}</span>
                         </div>
