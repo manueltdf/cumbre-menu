@@ -86,9 +86,571 @@
         },
     };
 
+    const products =     {
+        "Tostado de campo": [
+            "Tostado de campo",
+            "Ham and cheese toasted sandwich",
+            "Sanduíche tostado caipira"
+        ],
+        "Bagle de trucha": [
+            "Bagel de trucha",
+            "Trout bagel",
+            "Bagel de truta"
+        ],
+        "Low carb": [
+            "Low carb",
+            "Low-carb",
+            "Low carb"
+        ],
+        "Ciabatta de jamón crudo, queso y tomate cherry": [
+            "Ciabatta de jamón crudo, queso y tomate cherry",
+            "Ciabatta with cured ham, cheese and cherry tomatoes",
+            "Ciabatta de presunto cru, queijo e tomate-cereja"
+        ],
+        "Osobuco": [
+            "Osobuco",
+            "Ossobuco",
+            "Ossobuco"
+        ],
+        "Cordero": [
+            "Cordero",
+            "Lamb",
+            "Cordeiro"
+        ],
+        "Vegetariano": [
+            "Vegetariano",
+            "Vegetarian",
+            "Vegetariano"
+        ],
+        "Clásica": [
+            "Clásica",
+            "Classic",
+            "Clássico"
+        ],
+        "Cerro negro": [
+            "Cerro Negro",
+            "Cerro Negro",
+            "Cerro Negro"
+        ],
+        "Del surco": [
+            "Del Surco",
+            "Del Surco",
+            "Del Surco"
+        ],
+        "Carne": [
+            "Carne",
+            "Beef empanadas",
+            "Empanadas de carne"
+        ],
+        "Hongos": [
+            "Hongos",
+            "Mushroom empanadas",
+            "Empanadas de cogumelos"
+        ],
+        "Jamón y queso": [
+            "Jamón y queso",
+            "Ham and cheese empanadas",
+            "Empanadas de presunto e queijo"
+        ],
+        "Papas fritas": [
+            "Papas fritas",
+            "French fries",
+            "Batatas fritas"
+        ],
+        "Papas con cheddar y bacon": [
+            "Papas con cheddar y bacon",
+            "Fries with cheddar and bacon",
+            "Batatas com cheddar e bacon"
+        ],
+        "Papas con pesto": [
+            "Papas con pesto",
+            "Fries with pesto",
+            "Batatas com pesto"
+        ],
+        "Papas Cumbre": [
+            "Papas Cumbre",
+            "Cumbre fries",
+            "Batatas Cumbre"
+        ],
+        "Picada cumbrera": [
+            "Picada cumbrera",
+            "Cumbre sharing platter",
+            "Tábua Cumbre para compartilhar"
+        ],
+        "Margarita": [
+            "Margarita",
+            "Margherita",
+            "Margherita"
+        ],
+        "Ahumados patagónicos": [
+            "Ahumados patagónicos",
+            "Patagonian smoked",
+            "Defumados patagônicos"
+        ],
+        "Vegetales al wok": [
+            "Vegetales al wok",
+            "Wok vegetables",
+            "Vegetais no wok"
+        ],
+        "Tradicionales": [
+            "Tradicionales",
+            "Traditional",
+            "Tradicionais"
+        ],
+        "Rúcula y jamón crudo": [
+            "Rúcula y jamón crudo",
+            "Arugula and cured ham",
+            "Rúcula e presunto cru"
+        ],
+        "Pascualina": [
+            "Pascualina",
+            "Spinach pie",
+            "Torta pascualina"
+        ],
+        "Empanada gallega de trucha": [
+            "Empanada gallega de trucha",
+            "Galician-style trout pie",
+            "Torta galega de truta"
+        ],
+        "Quiche sin harina": [
+            "Quiche sin harina",
+            "Crustless quiche",
+            "Quiche sem massa"
+        ],
+        "Guiso de lentejas": [
+            "Guiso de lentejas",
+            "Lentil stew",
+            "Ensopado de lentilhas"
+        ],
+        "Osobuco con puré": [
+            "Osobuco con puré",
+            "Ossobuco with mashed potatoes",
+            "Ossobuco com purê"
+        ],
+        "Trucha al limón": [
+            "Trucha al limón",
+            "Trout with lemon",
+            "Truta ao limão"
+        ],
+        "Trucha con salsa de hongos de pino": [
+            "Trucha con salsa de hongos de pino",
+            "Trout with pine mushroom sauce",
+            "Truta com molho de cogumelos-do-pinheiro"
+        ],
+        "Trucha con salsa de queso azul": [
+            "Trucha con salsa de queso azul",
+            "Trout with blue cheese sauce",
+            "Truta com molho de queijo azul"
+        ],
+        "César": [
+            "César",
+            "Caesar",
+            "Caesar"
+        ],
+        "Del día": [
+            "Del día",
+            "Salad of the day",
+            "Salada do dia"
+        ],
+        "Tallarines al huevo": [
+            "Tallarines al huevo",
+            "Egg noodles",
+            "Talharim com ovos"
+        ],
+        "Sorrentinos de jamón y queso": [
+            "Sorrentinos de jamón y queso",
+            "Ham and cheese sorrentinos",
+            "Sorrentinos de presunto e queijo"
+        ],
+        "Panzottis de trucha": [
+            "Panzottis de trucha",
+            "Trout panzotti",
+            "Panzottis de truta"
+        ],
+        "Filetto": [
+            "Filetto",
+            "Filetto tomato sauce",
+            "Molho de tomate filetto"
+        ],
+        "Mixta": [
+            "Mixta",
+            "Mixed sauce",
+            "Molho misto"
+        ],
+        "Crema": [
+            "Crema",
+            "Cream sauce",
+            "Molho de creme"
+        ],
+        "Manteca": [
+            "Manteca",
+            "Butter",
+            "Manteiga"
+        ],
+        "Hongos de pino": [
+            "Hongos de pino",
+            "Pine mushrooms",
+            "Cogumelos-do-pinheiro"
+        ],
+        "Queso azul": [
+            "Queso azul",
+            "Blue cheese",
+            "Queijo azul"
+        ],
+        "Pesto": [
+            "Pesto",
+            "Pesto",
+            "Pesto"
+        ],
+        "Napolitana": [
+            "Napolitana",
+            "Neapolitan",
+            "Napolitana"
+        ],
+        "Cumbre": [
+            "Cumbre",
+            "Cumbre",
+            "Cumbre"
+        ],
+        "Agua con o sin gas": [
+            "Agua con o sin gas",
+            "Still or sparkling water",
+            "Água sem gás ou com gás"
+        ],
+        "Agua saborizada": [
+            "Agua saborizada",
+            "Flavored water",
+            "Água saborizada"
+        ],
+        "Jugos naturales Fruggina": [
+            "Jugos naturales Fruggina",
+            "Fruggina natural juices",
+            "Sucos naturais Fruggina"
+        ],
+        "Gaseosas": [
+            "Gaseosas",
+            "Soft drinks",
+            "Refrigerantes"
+        ],
+        "Jugo de naranja": [
+            "Jugo de naranja",
+            "Orange juice",
+            "Suco de laranja"
+        ],
+        "Durazno / ananá / banana": [
+            "Durazno / ananá / banana",
+            "Peach / pineapple / banana smoothie",
+            "Vitamina de pêssego / abacaxi / banana"
+        ],
+        "Durazno con jugo de naranja": [
+            "Durazno con jugo de naranja",
+            "Peach and orange juice smoothie",
+            "Vitamina de pêssego com suco de laranja"
+        ],
+        "Frutos rojos": [
+            "Frutos rojos",
+            "Red berry smoothie",
+            "Vitamina de frutas vermelhas"
+        ],
+        "Frutos rojos y jugo de naranja": [
+            "Frutos rojos y jugo de naranja",
+            "Red berry and orange juice smoothie",
+            "Vitamina de frutas vermelhas com suco de laranja"
+        ],
+        "Café bajo cero": [
+            "Café bajo cero",
+            "Cold Coffee with cream",
+            "Café gelado com creme"
+        ],
+        "Tropicalis": [
+            "Tropicalis",
+            "Tropicalis",
+            "Tropicalis"
+        ],
+        "Chai austral": [
+            "Chai austral",
+            "Southern Chai",
+            "Chai austral"
+        ],
+        "Limonada con menta y jengibre": [
+            "Limonada con menta y jengibre",
+            "Mint and ginger lemonade",
+            "Limonada com hortelã e gengibre"
+        ],
+        "Limonada con frutos rojos": [
+            "Limonada con frutos rojos",
+            "Red berry lemonade",
+            "Limonada com frutas vermelhas"
+        ],
+        "Soda italiana de manzana": [
+            "Soda italiana de manzana",
+            "Italian apple soda",
+            "Soda italiana de maçã"
+        ],
+        "Cumbre helada": [
+            "Cumbre helada",
+            "Cumbre Helada",
+            "Cumbre Helada"
+        ],
+        "Huella andina": [
+            "Huella andina",
+            "Huella Andina",
+            "Huella Andina"
+        ],
+        "Bosque sumergido": [
+            "Bosque sumergido",
+            "Bosque Sumergido",
+            "Bosque Sumergido"
+        ],
+        "Traful rojo": [
+            "Traful rojo",
+            "Traful rojo",
+            "Traful Rojo"
+        ],
+        "Cerveza artesanal": [
+            "Cerveza artesanal",
+            "Craft beer",
+            "Cerveja artesanal"
+        ],
+        "Cerveza Heineken": [
+            "Cerveza Heineken",
+            "Heineken beer",
+            "Cerveja Heineken"
+        ],
+        "Espumante": [
+            "Espumante",
+            "Sparkling wine",
+            "Espumante"
+        ],
+        "Copa de vino": [
+            "Copa de vino",
+            "Glass of wine",
+            "Taça de vinho"
+        ],
+        "Aperol spritz": [
+            "Aperol spritz",
+            "Aperol Spritz",
+            "Aperol Spritz"
+        ],
+        "Negroni": [
+            "Negroni",
+            "Negroni",
+            "Negroni"
+        ],
+        "Americano": [
+            "Americano",
+            "Americano",
+            "Americano"
+        ],
+        "Old fashioned": [
+            "Old fashioned",
+            "Old Fashioned",
+            "Old Fashioned"
+        ],
+        "Cynar julep": [
+            "Cynar julep",
+            "Cynar Julep",
+            "Cynar Julep"
+        ],
+        "Gin tonic": [
+            "Gin tonic",
+            "Gin and tonic",
+            "Gin tônica"
+        ],
+        "Gin tonic con frutos rojos": [
+            "Gin tonic con frutos rojos",
+            "Gin and tonic with red berries",
+            "Gin tônica com frutas vermelhas"
+        ],
+        "Gin Athos": [
+            "Gin Athos",
+            "Athos Gin",
+            "Gin Athos"
+        ],
+        "Ice Amarula cream": [
+            "Ice Amarula cream",
+            "Amarula Cream on Ice",
+            "Amarula Cream com gelo"
+        ],
+        "Manhatan": [
+            "Manhattan",
+            "Manhattan",
+            "Manhattan"
+        ],
+        "Fernet cola": [
+            "Fernet cola",
+            "Fernet and cola",
+            "Fernet com Coca-Cola"
+        ],
+        "Campari naranja": [
+            "Campari naranja",
+            "Campari and orange",
+            "Campari com laranja"
+        ],
+        "Vermouth": [
+            "Vermouth",
+            "Vermouth",
+            "Vermute"
+        ],
+        "Ferroviario": [
+            "Ferroviario",
+            "Ferroviario",
+            "Ferroviario"
+        ],
+        "Medida de tequila": [
+            "Medida de tequila",
+            "Tequila shot",
+            "Dose de tequila"
+        ],
+        "Medida de whisky": [
+            "Medida de whisky",
+            "Whisky shot",
+            "Dose de uísque"
+        ],
+        "Medida de Jagermeister": [
+            "Medida de Jägermeister",
+            "Jägermeister shot",
+            "Dose de Jägermeister"
+        ],
+        "Jagertonic": [
+            "Jägermeister tónica",
+            "Jägermeister and tonic",
+            "Jägermeister com tônica"
+        ],
+        "Café": [
+            "Café",
+            "Coffee",
+            "Café"
+        ],
+        "Cortado": [
+            "Cortado",
+            "Cortado",
+            "Cortado"
+        ],
+        "Lágrima": [
+            "Lágrima",
+            "Lágrima",
+            "Lágrima"
+        ],
+        "Café con leche": [
+            "Café con leche",
+            "Café au lait",
+            "Café com leite"
+        ],
+        "Capuccino": [
+            "Capuccino",
+            "Cappuccino",
+            "Cappuccino"
+        ],
+        "Té clásico o saborizado": [
+            "Té clásico o saborizado",
+            "Classic or flavored tea",
+            "Chá clássico ou saborizado"
+        ],
+        "Té en hebras": [
+            "Té en hebras",
+            "Loose-leaf tea",
+            "Chá em folhas"
+        ],
+        "Medialunas": [
+            "Medialunas",
+            "Croissants",
+            "Medialunas"
+        ],
+        "Medialunas con jamón y queso": [
+            "Medialunas con jamón y queso",
+            "Ham and cheese medialunas",
+            "Medialunas com presunto e queijo"
+        ],
+        "Tostadas": [
+            "Tostadas",
+            "Toast",
+            "Torradas"
+        ],
+        "Pasta frola de membrillo": [
+            "Pasta frola de membrillo",
+            "Quince tart",
+            "Torta frola de marmelo"
+        ],
+        "Alfajor del Montañés": [
+            "Alfajor del Montañés",
+            "Montañés alfajor",
+            "Alfajor del Montañés"
+        ],
+        "Conito de dulce de leche": [
+            "Conito de dulce de leche",
+            "Dulce de leche cone",
+            "Cone de doce de leite"
+        ],
+        "Brownie": [
+            "Brownie",
+            "Brownie",
+            "Brownie"
+        ],
+        "Cheesecake de frutos rojos": [
+            "Cheesecake de frutos rojos",
+            "Red berry cheesecake",
+            "Cheesecake de frutas vermelhas"
+        ],
+        "Flan": [
+            "Flan",
+            "Flan",
+            "Pudim"
+        ],
+        "Don Pedro": [
+            "Don Pedro",
+            "Don Pedro",
+            "Don Pedro"
+        ],
+        "Helado artesanal del Montañés": [
+            "Helado artesanal del Montañés",
+            "Montañés artisanal ice cream",
+            "Sorvete artesanal del Montañés"
+        ]
+    };
+    const variants =     {
+        "3 unidades": [
+            "3 unidades",
+            "3 pieces",
+            "3 unidades"
+        ],
+        "Para 2 personas": [
+            "para 2 personas",
+            "for 2",
+            "para 2 pessoas"
+        ],
+        "Lata": [
+            "lata",
+            "can",
+            "lata"
+        ],
+        "Pinta": [
+            "pinta",
+            "pint",
+            "pint"
+        ],
+        "Jarrito": [
+            "jarrito",
+            "mug",
+            "caneca"
+        ],
+        "Pocillo": [
+            "pocillo",
+            "small cup",
+            "xícara pequena"
+        ],
+        "Doble": [
+            "doble",
+            "double",
+            "duplo"
+        ]
+    };
     const categories = {
         'Sándwiches': ['Sandwiches', 'Sanduíches'],
         'Hamburguesas': ['Burgers', 'Hambúrgueres'],
+        'Empanadas': ['Empanadas', 'Empanadas'],
+        'Pizzas': ['Pizzas', 'Pizzas'],
+        'Mocktails': ['Mocktails', 'Mocktails'],
         'Para picar': ['Sharing plates', 'Para compartilhar'],
         'Tartas': ['Savoury pies', 'Tortas salgadas'],
         'Platos principales': ['Main courses', 'Pratos principais'],
@@ -163,6 +725,14 @@
             const pair = subtitles[node.dataset.i18nSubtitle];
             if (pair && index >= 0) node.textContent = pair[index];
             else node.textContent = node.dataset.i18nEs || node.dataset.i18nSubtitle;
+        });
+        document.querySelectorAll('[data-i18n-product]').forEach(node => {
+            const pair = products[node.dataset.i18nProduct];
+            if (pair) node.textContent = pair[index + 1];
+        });
+        document.querySelectorAll('[data-i18n-variant]').forEach(node => {
+            const pair = variants[node.dataset.i18nVariant];
+            if (pair) node.textContent = '· ' + pair[index + 1];
         });
         document.querySelectorAll('[data-i18n-merch-alt]').forEach(node => {
             const use = words[node.dataset.i18nMerchAlt];
