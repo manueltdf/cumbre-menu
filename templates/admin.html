@@ -21,10 +21,13 @@
             <span class="admin-banner__divider" aria-hidden="true"></span>
             <h1>Panel de administración</h1>
 
-            <form class="admin-banner__logout" method="post" action="{{ url_for('logout') }}">
+            <div class="admin-banner__actions">
+                <a class="admin-banner__public" href="{{ url_for('inicio') }}">Ver menú público</a>
+                <form class="admin-banner__logout" method="post" action="{{ url_for('logout') }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <button type="submit">Cerrar sesión</button>
-            </form>
+                </form>
+            </div>
         </div>
     </header>
 
@@ -133,7 +136,6 @@
         <p class="admin-no-results" id="sin-resultados" hidden>No se encontraron productos.</p>
 
         <footer class="admin-footer">
-            <a href="{{ url_for('inicio') }}">Ver menú público</a>
             <span>Los cambios guardados se reflejan en el menú.</span>
         </footer>
     </main>
