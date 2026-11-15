@@ -513,7 +513,7 @@
             "Dose de Jägermeister"
         ],
         "Jagertonic": [
-            "Jägermeister tónica",
+            "Jagertonic",
             "Jägermeister and tonic",
             "Jägermeister com tônica"
         ],
