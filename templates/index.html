@@ -27,7 +27,7 @@
                                 {% if producto["categoria"].startswith("Merchandising") %}
                                     {{ producto["nombre"] }}
                                 {% else %}
-                                    <span data-i18n-product="{{ producto['nombre'] }}::{{ producto['variante'] }}">{{ producto["nombre"] }}{% if producto["variante"] %} ({{ producto["variante"]|lower }}){% endif %}</span>
+                                    <span data-i18n-product="{{ producto['nombre'] }}::{{ producto['variante'] }}" data-i18n-product-category="{{ producto['categoria'] }}">{{ producto["nombre"] }}{% if producto["variante"] %} ({{ producto["variante"]|lower }}){% endif %}</span>
                                 {% endif %}
                             </h4>
                             <span class="menu-item__price">{{ producto["precio"] | pesos }}</span>
