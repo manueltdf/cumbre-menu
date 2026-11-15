@@ -470,46 +470,55 @@
 
 @media (max-width: 700px) {
     .admin-banner__inner {
-        position: relative;
+        display: flex;
+        flex-direction: column;
         width: min(100% - 32px, 560px);
         min-height: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px 18px;
-        padding: 16px 0 76px;
+        gap: 16px;
+        padding: 22px 0 24px;
+        text-align: center;
     }
 
     .admin-banner__logo {
-        flex: 0 0 138px;
+        flex: 0 0 auto;
         width: 138px;
         height: 101px;
     }
 
     .admin-banner__divider {
-        height: 68px;
+        display: none;
     }
 
     .admin-banner h1 {
-        flex: 0 1 245px;
-        font-size: clamp(24px, 6vw, 31px);
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 340px;
+        font-size: clamp(24px, 6vw, 30px);
+        line-height: 1.2;
+        text-wrap: balance;
     }
 
     .admin-banner__actions {
-        position: absolute;
-        right: 0;
-        bottom: 14px;
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: 360px;
         gap: 10px;
+        margin: 4px 0 0;
     }
 
-    .admin-banner__public {
-        min-height: 42px;
-        padding: 0 16px;
-        font-size: 12px;
-    }
-
+    .admin-banner__public,
     .admin-banner__logout button {
-        min-height: 42px;
-        padding: 0 16px;
+        width: 100%;
+        min-height: 44px;
+        padding: 0 10px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .admin-banner__logout {
+        min-width: 0;
     }
 
     .admin-main {
@@ -569,7 +578,6 @@
     }
 
     .admin-banner__logo {
-        flex-basis: 112px;
         width: 112px;
         height: 82px;
     }
@@ -579,8 +587,7 @@
     }
 
     .admin-banner h1 {
-        flex-basis: 170px;
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .admin-price-input {
