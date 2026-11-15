@@ -97,9 +97,37 @@
     line-height: 1.2;
 }
 
+.admin-banner__actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.admin-banner__public {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.admin-banner__public:hover {
+    background: #fff;
+    color: var(--admin-green);
+}
+
 .admin-banner__logout {
     flex: 0 0 auto;
-    margin-left: auto;
+    margin: 0;
 }
 
 .admin-banner__logout button {
@@ -364,6 +392,7 @@
 }
 
 .admin-save:focus-visible,
+.admin-banner__public:focus-visible,
 .admin-banner__logout button:focus-visible,
 .admin-footer a:focus-visible {
     outline: 3px solid #8db49a;
@@ -465,15 +494,22 @@
         font-size: clamp(24px, 6vw, 31px);
     }
 
-    .admin-banner__logout {
+    .admin-banner__actions {
         position: absolute;
         right: 0;
         bottom: 14px;
+        gap: 10px;
+    }
+
+    .admin-banner__public {
+        min-height: 42px;
+        padding: 0 16px;
+        font-size: 12px;
     }
 
     .admin-banner__logout button {
         min-height: 42px;
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .admin-main {
