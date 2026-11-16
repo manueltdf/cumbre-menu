@@ -762,6 +762,244 @@
         'Milanesas': ['Choose fries, wok-fried vegetables, or mashed potatoes.', 'Escolha entre batatas fritas, legumes salteados no wok ou purê.'],
         'Licuados': ['Made with water or milk', 'Feito com água ou leite'],
     };
+    const descriptions = {
+    "2 u. pan casero, jamón, queso pategrás y parmesano gratinado.": [
+        "2 u. pan casero, jamón, queso pategrás y parmesano gratinado.",
+        "2 pieces of homemade bread, ham, Pategras cheese and gratin Parmesan.",
+        "2 unidades de pão caseiro, presunto, queijo Pategrás e parmesão gratinado."
+    ],
+    "Queso crema, ciboulette, rúcula y trucha ahumada.": [
+        "Queso crema, ciboulette, rúcula y trucha ahumada.",
+        "Cream cheese, chives, arugula and smoked trout.",
+        "Cream cheese, cebolinha, rúcula e truta defumada."
+    ],
+    "Pan de maní sin harinas, lomito ahumado, queso azul y rúcula.": [
+        "Pan de maní sin harinas, lomito ahumado, queso azul y rúcula.",
+        "Flourless peanut bread, smoked pork loin, blue cheese and arugula.",
+        "Pão de amendoim sem farinha, lombo suíno defumado, queijo azul e rúcula."
+    ],
+    "Pan ciabatta, carne de osobuco braseada, gremolata y lechuga.": [
+        "Pan ciabatta, carne de osobuco braseada, gremolata y lechuga.",
+        "Ciabatta bread, braised beef shank, gremolata and lettuce.",
+        "Pão ciabatta, carne de ossobuco braseada, gremolata e alface."
+    ],
+    "Pan ciabatta, carne de cordero braseado, salsa criolla y lechuga.": [
+        "Pan ciabatta, carne de cordero braseado, salsa criolla y lechuga.",
+        "Ciabatta bread, braised lamb, criolla sauce and lettuce.",
+        "Pão ciabatta, cordeiro braseado, molho crioulo e alface."
+    ],
+    "Pan ciabatta, hummus, hongos de pino, vegetales asados y lechuga.": [
+        "Pan ciabatta, hummus, hongos de pino, vegetales asados y lechuga.",
+        "Ciabatta bread, hummus, pine mushrooms, roasted vegetables and lettuce.",
+        "Pão ciabatta, homus, cogumelos-do-pinheiro, vegetais assados e alface."
+    ],
+    "Un medallón de carne, queso pategrás, jamón, lechuga y tomate. Con papas fritas.": [
+        "Un medallón de carne, queso pategrás, jamón, lechuga y tomate. Con papas fritas.",
+        "One beef patty, Pategras cheese, ham, lettuce and tomato. Served with fries.",
+        "Um hambúrguer de carne, queijo Pategrás, presunto, alface e tomate. Acompanha batatas fritas."
+    ],
+    "Doble medallón de carne, queso ahumado, panceta y salsa especial. Con papas fritas.": [
+        "Doble medallón de carne, queso ahumado, panceta y salsa especial. Con papas fritas.",
+        "Two beef patties, smoked cheese, bacon and special sauce. Served with fries.",
+        "Dois hambúrgueres de carne, queijo defumado, bacon e molho especial. Acompanha batatas fritas."
+    ],
+    "Falafel, hummus, raita y lechuga. Con papas fritas.": [
+        "Falafel, hummus, raita y lechuga. Con papas fritas.",
+        "Falafel, hummus, raita and lettuce. Served with fries.",
+        "Falafel, homus, raita e alface. Acompanha batatas fritas."
+    ],
+    "Con salsa de hongos y panceta.": [
+        "Con salsa de hongos y panceta.",
+        "With mushroom sauce and bacon.",
+        "Com molho de cogumelos e bacon."
+    ],
+    "Trucha ahumada, salmón ahumado, pernil ahumado, ciervo ahumado y queso ahumado.": [
+        "Trucha ahumada, salmón ahumado, pernil ahumado, ciervo ahumado y queso ahumado.",
+        "Smoked trout, smoked salmon, smoked pork leg, smoked venison and smoked cheese.",
+        "Truta defumada, salmão defumado, pernil defumado, carne de cervo defumada e queijo defumado."
+    ],
+    "Jamón y morrones / Fugazzeta / Queso azul / Napolitana / Jamón y ananá.": [
+        "Jamón y morrones / Fugazzeta / Queso azul / Napolitana / Jamón y ananá.",
+        "Ham and bell peppers / Fugazzeta / Blue cheese / Neapolitan / Ham and pineapple.",
+        "Presunto e pimentões / Fugazzeta / Queijo azul / Napolitana / Presunto e abacaxi."
+    ],
+    "Cebolla, espinaca, morrón y queso. Con ensalada.": [
+        "Cebolla, espinaca, morrón y queso. Con ensalada.",
+        "Onion, spinach, bell pepper and cheese. Served with salad.",
+        "Cebola, espinafre, pimentão e queijo. Acompanha salada."
+    ],
+    "Cebolla, morrón, trucha y queso crema. Con ensalada.": [
+        "Cebolla, morrón, trucha y queso crema. Con ensalada.",
+        "Onion, bell pepper, trout and cream cheese. Served with salad.",
+        "Cebola, pimentão, truta e cream cheese. Acompanha salada."
+    ],
+    "Queso gratinado, crema, panceta y vegetales de estación. Con ensalada.": [
+        "Queso gratinado, crema, panceta y vegetales de estación. Con ensalada.",
+        "Gratinéed cheese, cream, bacon and seasonal vegetables. Served with salad.",
+        "Queijo gratinado, creme de leite, bacon e vegetais da estação. Acompanha salada."
+    ],
+    "Desmechado de osobuco con base de puré.": [
+        "Desmechado de osobuco con base de puré.",
+        "Shredded beef shank on a bed of mashed potatoes.",
+        "Carne de ossobuco desfiada sobre uma base de purê de batatas."
+    ],
+    "Con papas fritas / vegetales al wok / puré.": [
+        "Con papas fritas / vegetales al wok / puré.",
+        "With fries / wok-fried vegetables / mashed potatoes.",
+        "Com batatas fritas / vegetais no wok / purê de batatas."
+    ],
+    "Lechuga, pollo, queso parmesano, croutones y aderezo césar.": [
+        "Lechuga, pollo, queso parmesano, croutones y aderezo césar.",
+        "Lettuce, chicken, Parmesan cheese, croutons and Caesar dressing.",
+        "Alface, frango, queijo parmesão, croutons e molho Caesar."
+    ],
+    "Consultar con el mozo.": [
+        "Consultar con el mozo.",
+        "Ask your server.",
+        "Consulte o garçom."
+    ],
+    "Salsa de tomate, jamón cocido, muzzarella y tomate fresco. Con papas fritas / vegetales al wok / puré.": [
+        "Salsa de tomate, jamón cocido, muzzarella y tomate fresco. Con papas fritas / vegetales al wok / puré.",
+        "Tomato sauce, cooked ham, mozzarella and fresh tomato. With fries / wok-fried vegetables / mashed potatoes.",
+        "Molho de tomate, presunto cozido, muçarela e tomate fresco. Com batatas fritas / vegetais no wok / purê de batatas."
+    ],
+    "Salsa de hongos de pino, queso ahumado y panceta. Con papas fritas / vegetales al wok / puré.": [
+        "Salsa de hongos de pino, queso ahumado y panceta. Con papas fritas / vegetales al wok / puré.",
+        "Pine mushroom sauce, smoked cheese and bacon. With fries / wok-fried vegetables / mashed potatoes.",
+        "Molho de cogumelos-do-pinheiro, queijo defumado e bacon. Com batatas fritas / vegetais no wok / purê de batatas."
+    ],
+    "Con agua / con leche.": [
+        "Con agua / con leche.",
+        "With water / with milk.",
+        "Com água / com leite."
+    ],
+    "Café espresso, almíbar y chantilly.": [
+        "Café espresso, almíbar y chantilly.",
+        "Espresso, syrup and whipped cream.",
+        "Café espresso, calda de açúcar e chantilly."
+    ],
+    "Jugo de maracuyá, naranja y agua de coco.": [
+        "Jugo de maracuyá, naranja y agua de coco.",
+        "Passion fruit juice, orange and coconut water.",
+        "Suco de maracujá, laranja e água de coco."
+    ],
+    "Té con especias, limón y jengibre.": [
+        "Té con especias, limón y jengibre.",
+        "Spiced tea, lemon and ginger.",
+        "Chá com especiarias, limão e gengibre."
+    ],
+    "Té en hebras ahumado, limón, whiskey y caramelo.": [
+        "Té en hebras ahumado, limón, whiskey y caramelo.",
+        "Smoked loose-leaf tea, lemon, whiskey and caramel.",
+        "Chá em folhas defumado, limão, uísque e caramelo."
+    ],
+    "Sauco, limón, Malamado, Jagermeister y espumante.": [
+        "Sauco, limón, Malamado, Jagermeister y espumante.",
+        "Elderberry, lemon, Malamado, Jägermeister and sparkling wine.",
+        "Sabugueiro, limão, Malamado, Jägermeister e espumante."
+    ],
+    "Yerba mate, mosqueta, limón y vodka.": [
+        "Yerba mate, mosqueta, limón y vodka.",
+        "Yerba mate, rosehip, lemon and vodka.",
+        "Erva-mate, rosa-mosqueta, limão e vodca."
+    ],
+    "Frutos rojos, naranja, gin, enebro y hierbas silvestres.": [
+        "Frutos rojos, naranja, gin, enebro y hierbas silvestres.",
+        "Red berries, orange, gin, juniper and wild herbs.",
+        "Frutas vermelhas, laranja, gin, zimbro e ervas silvestres."
+    ],
+    "Amargo Aperol, espumante y soda.": [
+        "Amargo Aperol, espumante y soda.",
+        "Aperol aperitif, sparkling wine and soda water.",
+        "Aperitivo Aperol, espumante e água com gás."
+    ],
+    "Gin, rosso y Campari.": [
+        "Gin, rosso y Campari.",
+        "Gin, rosso vermouth and Campari.",
+        "Gin, vermute rosso e Campari."
+    ],
+    "Rosso, Campari y soda.": [
+        "Rosso, Campari y soda.",
+        "Rosso vermouth, Campari and soda water.",
+        "Vermute rosso, Campari e água com gás."
+    ],
+    "Bourbon, azúcar y Angostura bitter.": [
+        "Bourbon, azúcar y Angostura bitter.",
+        "Bourbon, sugar and Angostura bitters.",
+        "Bourbon, açúcar e bitter Angostura."
+    ],
+    "Cynar, jugo de cítricos, menta y soda.": [
+        "Cynar, jugo de cítricos, menta y soda.",
+        "Cynar, citrus juice, mint and soda water.",
+        "Cynar, suco de frutas cítricas, hortelã e água com gás."
+    ],
+    "Gin, tónica y pepino.": [
+        "Gin, tónica y pepino.",
+        "Gin, tonic water and cucumber.",
+        "Gin, água tônica e pepino."
+    ],
+    "Gin Beefeater y frutos rojos.": [
+        "Gin Beefeater y frutos rojos.",
+        "Beefeater gin and red berries.",
+        "Gin Beefeater e frutas vermelhas."
+    ],
+    "Verano / Otoño / Invierno / Primavera.": [
+        "Verano / Otoño / Invierno / Primavera.",
+        "Summer / Autumn / Winter / Spring.",
+        "Verão / Outono / Inverno / Primavera."
+    ],
+    "Cream Baileys, whiskey y helado de americana.": [
+        "Cream Baileys, whiskey y helado de americana.",
+        "Baileys Irish Cream, whiskey and Americana ice cream.",
+        "Baileys Irish Cream, uísque e sorvete de creme."
+    ],
+    "Bourbon, rosso y piel de naranja.": [
+        "Bourbon, rosso y piel de naranja.",
+        "Bourbon, rosso vermouth and orange peel.",
+        "Bourbon, vermute rosso e casca de laranja."
+    ],
+    "Fernet Branca, Cinzano rosso y soda.": [
+        "Fernet Branca, Cinzano rosso y soda.",
+        "Fernet Branca, Cinzano rosso and soda water.",
+        "Fernet Branca, Cinzano rosso e água com gás."
+    ],
+    "Jagermeister y tónica.": [
+        "Jagermeister y tónica.",
+        "Jägermeister and tonic water.",
+        "Jägermeister e água tônica."
+    ],
+    "Saquito.": [
+        "Saquito.",
+        "Tea bag.",
+        "Sachê de chá."
+    ],
+    "Pan casero, dip de queso crema y mermelada o dulce de leche.": [
+        "Pan casero, dip de queso crema y mermelada o dulce de leche.",
+        "Homemade bread, cream cheese dip and jam or dulce de leche.",
+        "Pão caseiro, pasta de cream cheese e geleia ou doce de leite."
+    ],
+    "Con frutos rojos, dulce de leche y helado.": [
+        "Con frutos rojos, dulce de leche y helado.",
+        "With red berries, dulce de leche and ice cream.",
+        "Com frutas vermelhas, doce de leite e sorvete."
+    ],
+    "Con dulce de leche y/o crema.": [
+        "Con dulce de leche y/o crema.",
+        "With dulce de leche and/or cream.",
+        "Com doce de leite e/ou creme de leite."
+    ],
+    "Whisky, helado de americana y nueces.": [
+        "Whisky, helado de americana y nueces.",
+        "Whisky, sweet cream ice cream and walnuts.",
+        "Uísque, sorvete de creme e nozes."
+    ],
+    "2 sabores.": [
+        "2 sabores.",
+        "2 flavors.",
+        "2 sabores."
+    ]
+};
+
     const localeFor = code => code === 'en' ? 'en' : code === 'pt' ? 'pt' : 'es';
 
     let savedLanguage = null;
@@ -822,6 +1060,11 @@
         document.querySelectorAll('[data-i18n-variant]').forEach(node => {
             const pair = variants[node.dataset.i18nVariant];
             if (pair) node.textContent = '· ' + pair[index + 1];
+        });
+        document.querySelectorAll('[data-i18n-description]').forEach(node => {
+            const original = node.dataset.i18nDescription;
+            const translated = descriptions[original];
+            node.textContent = translated ? translated[index + 1] : original;
         });
         document.querySelectorAll('[data-i18n-merch-alt]').forEach(node => {
             const use = words[node.dataset.i18nMerchAlt];
