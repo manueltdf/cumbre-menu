@@ -1,4 +1,4 @@
-"""Copy only public templates and static files into the Worker asset bundle."""
+"""Copy public templates and static files into the Worker asset bundle."""
 
 from pathlib import Path
 import shutil
@@ -17,7 +17,7 @@ def main():
     shutil.copytree(ROOT / "templates", DESTINO / "templates")
     shutil.copytree(ROOT / "static", DESTINO / "static")
     shutil.copy2(ROOT / "app.py", SRC / "app.py")
-    print(f"Código y assets de staging preparados en {WORKER}")
+    print(f"Código y assets preparados para desplegar el Worker en {WORKER}")
 
 
 if __name__ == "__main__":

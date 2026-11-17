@@ -7,7 +7,7 @@
   "workers_dev": true,
   "preview_urls": false,
   "vars": {
-    "CUMBRE_ENV": "production"
+    "CUMBRE_ENV": "staging"
   },
   "assets": {
     "directory": "./.cloudflare-assets",
