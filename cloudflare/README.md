@@ -1,29 +1,22 @@
-# Carta web de Cumbre Restobar
+# Despliegue en Cloudflare
 
-La carta del Worker está publicada y activa como producción. Se promovió en el
-mismo Worker que antes se usaba para staging, para conservar su código, la
-base de datos y los secretos existentes.
+La aplicación se ejecuta en dos Workers independientes. Cada uno tiene su
+propia base D1 y sus propios secretos en Cloudflare.
 
-- URL pública actual: https://cumbre-menu-staging.manuvinfo.workers.dev/
-- El Worker conserva el nombre técnico `cumbre-menu-staging`; por eso ese
-  sufijo sigue apareciendo en la URL.
-- La base D1 actual contiene los 118 productos y conserva su identificador.
-  No volver a crearla, borrarla ni aplicar migraciones remotas sin preparar
-  primero una copia y revisar el cambio.
-- Los secretos están guardados en Cloudflare. No imprimirlos ni subirlos a Git.
-  Cambiar el hash de administrador solo desde el archivo privado local.
+| Entorno | Worker | URL actual | Base D1 | `CUMBRE_ENV` |
+| --- | --- | --- | --- | --- |
+| Producción | `cumbre-menu` | https://cumbre-menu.manuvinfo.workers.dev/ | `cumbre-menu-production` | `production` |
+| Staging | `cumbre-menu-staging` | https://cumbre-menu-staging.manuvinfo.workers.dev/ | `cumbre-menu-staging` | `staging` |
 
-## QR existente y Pages
+Los archivos de configuración son explícitos:
 
-El QR impreso no se regenera. Su URL original entra por
-`https://cumbre-menu.pages.dev/menu.pdf`. Cloudflare Pages conserva solo las
-redirecciones de la portada y de esa ruta al Worker. El PDF y su antigua página
-ya se eliminaron del despliegue.
+- `cloudflare/worker/wrangler.production.jsonc` apunta al Worker y a la base D1 de producción.
+- `cloudflare/worker/wrangler.jsonc` apunta al Worker y a la base D1 de staging.
 
-No borrar el proyecto Pages ni el archivo `public/_redirects`: son la ruta de
-compatibilidad que permite que el QR existente siga abriendo la carta nueva.
+Elegí siempre el archivo adecuado con `--config`. No despliegues producción
+con `wrangler.jsonc`: ese archivo es exclusivamente para staging.
 
-## Preparar un despliegue futuro
+## Preparar los assets
 
 Desde la raíz del repositorio:
 
@@ -33,23 +26,64 @@ cd cloudflare/worker
 uv sync
 ```
 
-El Worker y su archivo Wrangler siguen usando el nombre técnico histórico
-`cumbre-menu-staging`. El valor `CUMBRE_ENV` debe permanecer en
-`production`; si vuelve a `staging`, la aplicación volverá a enviar
-`X-Robots-Tag: noindex, nofollow`.
+El script copia `app.py`, las plantillas y los archivos estáticos a la carpeta
+que el Worker publica. No modifica los datos de D1.
 
-Antes de desplegar, asegurarse de que el archivo privado de secretos contiene
-la contraseña de administrador que se quiere usar. No compartir ese archivo ni
-sus valores en GitHub o en el chat. Desplegar el mismo Worker con:
+## Desplegar en staging
+
+Primero revisá el paquete con un despliegue de prueba:
 
 ```bash
-uv run pywrangler deploy --secrets-file "$HOME/.cumbre-menu-staging-secrets.json"
+uv run pywrangler deploy --dry-run --config wrangler.jsonc
 ```
 
-El archivo de secretos conserva su nombre histórico. Wrangler actualiza solo
-los valores incluidos y mantiene los secretos remotos que no se incluyan.
+Si el resultado es correcto, desplegá solo en staging:
+
+```bash
+uv run pywrangler deploy --config wrangler.jsonc
+```
+
+## Desplegar en producción
+
+La producción usa otra configuración, otro Worker y otra base. Revisá con
+especial cuidado el nombre `cumbre-menu` y el ID de D1 antes de desplegar:
+
+```bash
+uv run pywrangler deploy --dry-run --config wrangler.production.jsonc
+```
+
+Si el resultado es correcto y querés publicar esos cambios en la web activa:
+
+```bash
+uv run pywrangler deploy --config wrangler.production.jsonc
+```
+
+No ejecutes migraciones remotas de D1 como parte de un despliegue habitual.
+Antes de modificar el esquema, prepará una copia y revisá la migración
+específica para cada base.
+
+## Secretos y acceso de administración
+
+Los Workers mantienen sus secretos en Cloudflare; los valores no se guardan en
+Git. Cada entorno tiene las vinculaciones `SECRET_KEY` y
+`ADMIN_PASSWORD_HASH`. Un despliegue normal sin `--secrets-file` no requiere
+volver a cargar esos valores. No uses un archivo de secretos de staging para
+desplegar en producción. Para rotar secretos, hacelo de forma explícita sobre
+el Worker elegido y nunca publiques los valores.
+
+## QR y Cloudflare Pages
+
+El QR existente no se regenera. Sigue apuntando a
+`https://cumbre-menu.pages.dev/menu.pdf`; el proyecto Pages conserva
+redirecciones de `/menu.pdf` y `/` hacia el Worker de producción. El PDF y
+la página anterior ya no se sirven.
+
+No borres el proyecto Pages ni `public/_redirects`: son el puente que
+mantiene operativo el QR impreso. Si cambia la URL del Worker, actualizá las
+redirecciones antes de retirar la dirección anterior.
 
 ## Desarrollo local
 
-El comando `uv run pywrangler dev` usa una base D1 local independiente.
-No apuntar desarrollo local a la base remota de producción.
+`uv run pywrangler dev --config wrangler.jsonc` usa la base D1 local de
+staging, independiente de la base remota. No configures desarrollo local para
+escribir en la base remota de producción.
