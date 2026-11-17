@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cumbre-menu",
+  "main": "src/worker.py",
+  "compatibility_date": "2026-11-09",
+  "compatibility_flags": ["python_workers"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "CUMBRE_ENV": "production"
+  },
+  "assets": {
+    "directory": "./.cloudflare-assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cumbre-menu-production",
+      "database_id": "6f2cd317-f986-47a9-a620-f9b6b05ef094",
+      "migrations_dir": "../migrations"
+    }
+  ]
+}
