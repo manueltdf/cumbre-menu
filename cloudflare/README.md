@@ -1,7 +1,8 @@
 # Despliegue en Cloudflare
 
 El Worker `cumbre-menu` sirve la carta y el panel de administración en
-https://cumbre-menu.manuvinfo.workers.dev/ y utiliza la base D1
+https://cumbretraful.com/ (también conserva
+https://cumbre-menu.manuvinfo.workers.dev/) y utiliza la base D1
 `cumbre-menu-production`. Su configuración está en
 `cloudflare/worker/wrangler.production.jsonc`.
 
@@ -43,14 +44,14 @@ configurados en Cloudflare. El despliegue habitual conserva ambos valores.
 
 ## QR y Cloudflare Pages
 
-El QR existente no se regenera. Sigue apuntando a
-`https://cumbre-menu.pages.dev/menu.pdf`; el proyecto Pages conserva
-redirecciones de `/menu.pdf` y `/` hacia el Worker de producción. El PDF y
-la página anterior ya no se sirven.
+El QR impreso no se regenera: contiene
+`https://cumbre-menu.pages.dev/menu.pdf`. El proyecto Pages `cumbre-menu`
+se conserva como puente de compatibilidad. Las reglas de
+`public/_redirects` redirigen `/menu.pdf` y `/` al dominio canónico
+https://cumbretraful.com/. El PDF y la página anterior ya no se sirven.
 
-No borres el proyecto Pages ni `public/_redirects`: son el puente que
-mantiene operativo el QR impreso. Si cambia la URL del Worker, actualizá las
-redirecciones antes de retirar la dirección anterior.
+No borres el proyecto Pages ni `public/_redirects` mientras se use el QR
+impreso. Si cambia el dominio del Worker, actualizá las redirecciones.
 
 ## Desarrollo local
 
