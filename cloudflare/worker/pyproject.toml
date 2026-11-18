@@ -1,5 +1,5 @@
 [project]
-name = "cumbre-menu-staging"
+name = "cumbre-menu"
 version = "0.1.0"
 description = "Flask menu app running on an isolated Cloudflare Worker"
 requires-python = ">=3.12"

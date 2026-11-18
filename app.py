@@ -208,13 +208,6 @@ def static_asset(filename):
     return Response(cuerpo, status=respuesta.status, headers=respuesta.headers)
 
 
-@app.after_request
-def marcar_staging_sin_indexar(respuesta):
-    entorno = request.environ.get("workers.env", cloudflare_env)
-    if IS_CLOUDFLARE_WORKER and getattr(entorno, "CUMBRE_ENV", "") == "staging":
-        respuesta.headers["X-Robots-Tag"] = "noindex, nofollow"
-    return respuesta
-
 @app.template_filter("pesos")
 def formato_pesos(valor):
     return f"$ {valor:,}".replace(",", ".")
