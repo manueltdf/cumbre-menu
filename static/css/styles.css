@@ -347,7 +347,8 @@ img {
     margin: 0;
     font-family: "Cumbre Serif", Georgia, serif;
     font-size: clamp(1.5rem, 2.3vw, 2.4rem);
-    font-weight: 400;
+    font-weight: 700;
+    font-synthesis: weight;
     letter-spacing: -0.035em;
     line-height: 1.2;
 }
