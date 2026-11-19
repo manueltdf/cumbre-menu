@@ -98,7 +98,7 @@ img {
     color: var(--paper);
     font-family: "Cumbre Serif", Georgia, serif;
     font-size: clamp(3rem, 6.2vw, 6.3rem);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -0.055em;
     line-height: 1.03;
 }
