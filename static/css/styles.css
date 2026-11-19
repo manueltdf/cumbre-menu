@@ -10,7 +10,7 @@
     font-family: "Cumbre Sans";
     src: url("../fonts/login/inter-600.woff2") format("woff2");
     font-style: normal;
-    font-weight: 600 800;
+    font-weight: 600;
     font-display: swap;
 }
 
@@ -401,10 +401,18 @@ img {
     white-space: nowrap;
 }
 
+.menu-item h4 {
+    color: #17231e;
+    font-family: "Cumbre Sans", Arial, sans-serif;
+    font-synthesis: weight;
+    font-weight: 800;
+}
+
 .menu-item__description {
     margin: 5px 0 0;
-    color: var(--muted);
+    color: #252a27;
     font-size: 0.92rem;
+    font-style: italic;
     line-height: 1.5;
 }
 
