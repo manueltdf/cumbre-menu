@@ -1,4 +1,12 @@
 @font-face {
+    font-family: "Cumbre Hero";
+    src: url("../fonts/login/lora-700.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+}
+
+@font-face {
     font-family: "Cumbre Sans";
     src: url("../fonts/login/inter-400.woff2") format("woff2");
     font-style: normal;
@@ -96,10 +104,9 @@ img {
 .hero h1 {
     margin: 35px 0 20px;
     color: var(--paper);
-    font-family: "Cumbre Serif", Georgia, serif;
+    font-family: "Cumbre Hero", Georgia, serif;
     font-size: clamp(3rem, 6.2vw, 6.3rem);
     font-weight: 700;
-    font-synthesis: weight;
     letter-spacing: -0.055em;
     line-height: 1.03;
 }
