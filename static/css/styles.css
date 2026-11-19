@@ -99,6 +99,7 @@ img {
     font-family: "Cumbre Serif", Georgia, serif;
     font-size: clamp(3rem, 6.2vw, 6.3rem);
     font-weight: 700;
+    font-synthesis: weight;
     letter-spacing: -0.055em;
     line-height: 1.03;
 }
