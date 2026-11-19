@@ -404,8 +404,7 @@ img {
 .menu-item h4 {
     color: #17231e;
     font-family: "Cumbre Sans", Arial, sans-serif;
-    font-synthesis: weight;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .menu-item__description {
