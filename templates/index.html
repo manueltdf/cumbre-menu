@@ -14,7 +14,7 @@
     {% macro categoria_card(nombre) %}
         {% set productos = categorias.get(nombre, []) %}
         {% if productos %}
-        <section class="menu-card" id="categoria-{{ nombre|lower|replace(' ', '-')|replace('·', '') }}">
+        <section class="menu-card{% if nombre == 'Para picar' %} menu-card--para-picar{% endif %}" id="categoria-{{ nombre|lower|replace(' ', '-')|replace('·', '') }}">
             <header class="menu-card__header">
                 <h3 data-i18n-category="{{ nombre }}">{{ nombre }}</h3>
                 {% set subtitulo = subtitulos_categoria.get(nombre) %}
@@ -105,7 +105,7 @@
                         </div>
                     {% else %}
                         {% for fila in bloque.filas %}
-                            <div class="menu-grid menu-grid--{{ fila|length }}">
+                            <div class="menu-grid menu-grid--{{ bloque.columnas }}">
                                 {% for nombre_categoria in fila %}
                                     {% if nombre_categoria %}{{ categoria_card(nombre_categoria) }}{% endif %}
                                 {% endfor %}

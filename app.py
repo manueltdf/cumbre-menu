@@ -287,11 +287,9 @@ LAYOUT_CARTA = (
         "titulo": "Sabores de montaña",
         "descripcion": "Sándwiches, hamburguesas y algo para compartir.",
         "tema": "verde",
-        "columnas": 2,
+        "columnas": 3,
         "filas": (
-            ("Sándwiches", "Para picar"),
-            ("Hamburguesas", "Pizzas"),
-            ("Empanadas", "Tartas"),
+            ("Para picar", "Empanadas", "Sándwiches", "Hamburguesas", "Pizzas", "Tartas"),
         ),
     },
     {

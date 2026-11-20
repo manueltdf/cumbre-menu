@@ -342,12 +342,61 @@ img {
     min-width: 0;
 }
 
+.menu-card--para-picar {
+    --corner: 12px;
+    position: relative;
+    isolation: isolate;
+    padding: clamp(8px, 1vw, 12px);
+    border: 1px solid var(--forest);
+}
+
+@supports (clip-path: polygon(0 0, 100% 0, 0 100%)) {
+    .menu-card--para-picar {
+        border-color: transparent;
+    }
+
+    .menu-card--para-picar::before,
+    .menu-card--para-picar::after {
+        position: absolute;
+        pointer-events: none;
+        content: "";
+        clip-path: polygon(
+            var(--corner) 0, calc(100% - var(--corner)) 0,
+            100% var(--corner), 100% calc(100% - var(--corner)),
+            calc(100% - var(--corner)) 100%, var(--corner) 100%,
+            0 calc(100% - var(--corner)), 0 var(--corner)
+        );
+    }
+
+    .menu-card--para-picar::before {
+        z-index: -2;
+        inset: -1px;
+        background: var(--forest);
+    }
+
+    .menu-card--para-picar::after {
+        z-index: -1;
+        inset: 0;
+        background: var(--paper);
+    }
+}
+
 .menu-card__header {
     min-height: 76px;
     margin-bottom: 0;
     padding: 15px 19px;
     background: var(--category-color);
     color: white;
+}
+
+.menu-card--para-picar .menu-card__header {
+    background: #a9ddce66;
+    color: var(--forest);
+}
+
+#sabores-de-montana .menu-item__heading h4 {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .menu-card__header h3 {
