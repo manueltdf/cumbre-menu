@@ -44,42 +44,34 @@
     {% endmacro %}
 
     <header class="hero">
+        <nav class="language-selector" aria-label="Idioma / Language">
+            <div class="language-selector__inner">
+                <span class="language-selector__label">Idioma / Language</span>
+                <div class="language-selector__options" role="group" aria-label="Idioma / Language">
+                    <button type="button" data-language="es" aria-pressed="true">Español</button>
+                    <button type="button" data-language="en" aria-pressed="false">English</button>
+                    <button type="button" data-language="pt" aria-pressed="false">Português</button>
+                </div>
+            </div>
+        </nav>
+
         <div class="hero__main">
             <div class="hero__copy">
-                <p class="eyebrow" data-i18n="routeLabel">Ruta 65 · Villa Traful</p>
                 <h1 data-i18n="heroTitle">Un lugar mágico<br>frente al lago.</h1>
                 <p class="hero__description" data-i18n="heroDescription">Para disfrutar de la gastronomía al ritmo de la montaña.</p>
             </div>
-            <img class="hero__logo" src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}" alt="Cumbre Resto Bar">
-        </div>
-        <div class="hero__keywords" aria-label="Especialidades" data-i18n-aria="specialtiesLabel">
-            <span data-i18n="specialtyMountain">Cocina de montaña</span>
-            <span data-i18n="specialtyDrinks">Tragos de autor</span>
-            <span data-i18n="specialtyCoffee">Cafetería y merienda</span>
-            <span data-i18n="specialtyTraful">Un recuerdo de Traful</span>
+            <img class="hero__logo" src="{{ url_for('static', filename='img/admin/cumbre-logo.png') }}" alt="Cumbre Resto Bar" width="771" height="562">
         </div>
     </header>
-
-    <nav class="language-selector" aria-label="Idioma / Language">
-        <div class="language-selector__inner">
-            <span class="language-selector__label">Idioma / Language</span>
-            <div class="language-selector__options" role="group" aria-label="Idioma / Language">
-                <button type="button" data-language="es" aria-pressed="true">Español</button>
-                <button type="button" data-language="en" aria-pressed="false">English</button>
-                <button type="button" data-language="pt" aria-pressed="false">português</button>
-            </div>
-        </div>
-    </nav>
 
     <main>
         <section class="location" aria-labelledby="location-title">
             <div class="location__copy">
-                <p class="eyebrow eyebrow--orange" data-i18n="locationEyebrow">Gastronomía al ritmo de la montaña</p>
-                <h2 id="location-title" data-i18n="locationTitle">La naturaleza nos inspira, el sabor te conquista.</h2>
-                <p class="location__route" data-i18n="routeLine">Ruta 65 / Villa Traful</p>
+                <h2 id="location-title">Villa Traful</h2>
+                <p class="location__route" data-i18n="locationRoute">Ruta 65</p>
             </div>
             <figure class="location__map">
-                <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65" data-i18n-alt="mapAlt">
+                <img src="{{ url_for('static', filename='img/menu/mapa-villa-traful.png') }}" alt="Mapa de Villa Traful y la Ruta 65" data-i18n-alt="mapAlt" width="1051" height="392">
             </figure>
         </section>
 
@@ -186,7 +178,6 @@
         <a class="footer__brand" href="#inicio">CUMBRE <span>RESTO BAR</span></a>
         <p data-i18n="footerTagline">Gastronomía al ritmo de la montaña.</p>
         <div class="footer__meta">
-            <span data-i18n="routeLabel">Ruta 65 · Villa Traful</span>
             <a
                 class="footer__instagram"
                 href="https://www.instagram.com/cumbrebar.traful/?hl=es"
